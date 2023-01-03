@@ -1,5 +1,5 @@
 ---
-title: "curso-plink"
+title: "Introdução a Análises Genômicas com PLINK"
 ---
 
 This is a Quarto website.
