@@ -1,19 +1,69 @@
 project:
   type: website
+  # language: pt-BR
 
 website:
-  title: "curso-plink"
-  navbar:
-    left:
+  page-navigation: true
+  title: "Introdução a Análises Genômicas no PLINK"
+  site-url: "https://paulobarros.github.io/introducao-ao-linux"
+  repo-url: "https://github.com/paulobarros/curso-plink"
+  repo-actions: [issue]
+  
+  page-footer:
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+    left: "![Caption](images/FrogPB.png)    &copy; CC-By Paulo Barros, 2022"
+    
+  sidebar:
+    logo: "images/logoplink.png"
+    pinned: true
+    align: center
+    tools: 
+      - icon: globe
+        href: https://paulobarros.com.br
+        text: "paulobarros.com.br"
+      - icon: github
+        href: https://github.com/paulobarros/curso-plink
+        text: "Análises Genômicas no PLINK"
+      - icon: twitter
+        href: https://twitter.com/pbarrosjr
+        text: "Paulo Barros Twitter"         
+
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: Apresentação
+      - href: wsl.qmd
+        text: Instalando o WSL
+      - href: linux.qmd
+        text: O que é o Linux?
+      - section: lfs/index.qmd
+        contents: 
+          - lfs/terminal.qmd
+          - lfs/folders.qmd
+          - lfs/files.qmd
+      - section: scripting/index.qmd
+        contents:
+          - section: scripting/bash/index.qmd
+            contents:
+              - scripting/bash/hello.qmd
+              - scripting/bash/variables.qmd
+              - scripting/bash/commands.qmd
+              - scripting/bash/math.qmd
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      light: [yeti, pbstyle.scss]
+      dark: [darkly, pbstyle.scss]
+    code-copy: true
+    code-overflow: wrap
+    code-block-bg: "#1A3434"
+    code-block-border-left: "#FFF0B0"
+    code-line-numbers: true
+    highlight-style: dracula
     toc: true
 
-
-
+execute:
+  freeze: auto
