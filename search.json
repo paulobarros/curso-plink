@@ -9,8 +9,15 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "curso-plink",
+    "title": "Introdução a Análises Genômicas com PLINK",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Este é um curso introdutório de Análises Genômicas utilizando o software PLINK (PURCELL et al., 2007) ministrado para o Grupo de Pesquisas em Conservação (GACOM) na Universidade Estadual do Sudoeste da Bahia (UESB), campus Jequié. O objetivo deste curso é oferecer aos alun@s um primeiro contato com as Análises Genônicas a partir de dados de SNPs no software PLINK."
+  },
+  {
+    "objectID": "index.html#quem-ministra",
+    "href": "index.html#quem-ministra",
+    "title": "Introdução a Análises Genômicas com PLINK",
+    "section": "Quem ministra?",
+    "text": "Quem ministra?\nMe chamo Paulo Barros, sou Bacharel em Ciências Biológicas com ênfase em genética pela UESB, e atualmente aluno de Mestrado nos programas de Pós-Graduação em Estatística Aplicada e Biometria pela Universidade Federal de Viçosa (UFV) e em Genética, Biodiversidade e Conservação pela UESB. Tenho atuado como Cientista de Dados na área da Biologia desde o final da graduação colaborando em trabalhos das mais diversas áreas. Também tenho experiência oferecendo cursos e mentorias em Análise de Dados com a Linguagem R para estudantes de graduação e pós-graduação, bem como para professores e profissionais de áreas correlatas da Biologia.\n\n\nPURCELL, S. et al. PLINK: a tool set for whole-genome association and population-based linkage analyses. The American journal of human genetics, v. 81, n. 3, p. 559–575, 2007."
   }
 ]
