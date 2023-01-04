@@ -1,6 +1,8 @@
 project:
   type: website
-  # language: pt-BR
+  
+bibliography: referencias.bib
+csl: abnt.csl
 
 website:
   page-navigation: true
