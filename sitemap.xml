@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/aplicacao.html</loc>
+    <lastmod>2023-03-29T18:23:55.379Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/snps.html</loc>
+    <lastmod>2023-03-29T18:23:56.455Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/index.html</loc>
+    <lastmod>2023-03-29T18:23:57.499Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/sequenciamento.html</loc>
+    <lastmod>2023-03-29T18:23:57.851Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/markers.html</loc>
+    <lastmod>2023-03-29T18:23:58.919Z</lastmod>
+  </url>
+  <url>
     <loc>https://paulobarros.github.io/introducao-ao-linux/about.html</loc>
-    <lastmod>2023-01-04T18:00:21.095Z</lastmod>
+    <lastmod>2023-03-29T18:23:59.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/diversity.html</loc>
+    <lastmod>2023-03-29T18:24:00.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/qc.html</loc>
+    <lastmod>2023-03-29T18:24:00.915Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/datafiles.html</loc>
+    <lastmod>2023-03-29T18:24:01.291Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/pca.html</loc>
+    <lastmod>2023-03-29T18:24:01.643Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/index.html</loc>
+    <lastmod>2023-03-29T18:24:02.019Z</lastmod>
   </url>
   <url>
     <loc>https://paulobarros.github.io/introducao-ao-linux/index.html</loc>
-    <lastmod>2023-01-04T18:00:23.603Z</lastmod>
+    <lastmod>2023-03-29T18:24:03.095Z</lastmod>
   </url>
 </urlset>
