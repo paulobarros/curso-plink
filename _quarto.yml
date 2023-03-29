@@ -13,7 +13,7 @@ website:
   
   page-footer:
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "![Caption](images/FrogPB.png)    &copy; CC-By Paulo Barros, 2022"
+    left: "![Caption](images/frogbird.png){height=45}  &nbsp;  **&copy; CC-By Paulo Barros, 2023**"
     
   sidebar:
     logo: "images/logoplink.png"
@@ -36,23 +36,26 @@ website:
     contents:
       - href: index.qmd
         text: Apresentação
-      - href: wsl.qmd
-        text: Instalando o WSL
-      - href: linux.qmd
-        text: O que é o Linux?
-      - section: lfs/index.qmd
+      - section: genomica/index.qmd
         contents: 
-          - lfs/terminal.qmd
-          - lfs/folders.qmd
-          - lfs/files.qmd
-      - section: scripting/index.qmd
+          - href: genomica/markers.qmd
+            text: Marcadores Moleculares
+          - href: genomica/snps.qmd
+            text: SNP
+          - href: genomica/sequenciamento.qmd
+            text: Genotipagem
+          - href: genomica/aplicacao.qmd
+            text: Aplicações
+      - section: plink/index.qmd
         contents:
-          - section: scripting/bash/index.qmd
-            contents:
-              - scripting/bash/hello.qmd
-              - scripting/bash/variables.qmd
-              - scripting/bash/commands.qmd
-              - scripting/bash/math.qmd
+          - href: plink/datafiles.qmd
+            text: Arquivos de Entrada
+          - href: plink/qc.qmd
+            text: Controle de Qualidade
+          - href: plink/diversity.qmd
+            text: Estatísticas Básicas
+          - href: plink/pca.qmd
+            text: PCA
 
 format:
   html:

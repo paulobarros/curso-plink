@@ -1,0 +1,23 @@
+---
+title: "Genômica"
+lang: pt-BR
+cap-location: margin
+---
+
+Chamados de **genoma** o conjunto completo de instruções genéticas de um organismo. Todos os genomas são codificados por **ácidos nucleicos**, sendo **DNA** ou **RNA**.
+
+::: {#fig-dna}
+
+![](../images/DNA-vs-RNA.jpg){width=500}
+
+DNA vs RNA
+
+:::
+
+> **Genômica** é o campo da genética que busca compreender o conteúdo, organização, função, e evolução da informação genética contida em todo o genoma. [@pierce2012genetics]
+
+
+
+::: {#refs}
+**Referências**
+:::
