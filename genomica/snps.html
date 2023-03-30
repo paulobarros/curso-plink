@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -65,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -170,10 +189,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#porquê-utilizar-snps-como-marcadores-moleculares" id="toc-porquê-utilizar-snps-como-marcadores-moleculares" class="nav-link active" data-scroll-target="#porquê-utilizar-snps-como-marcadores-moleculares">Porquê utilizar SNPs como Marcadores Moleculares?</a></li>
+  <li><a href="#desequilíbrio-de-ligação" id="toc-desequilíbrio-de-ligação" class="nav-link" data-scroll-target="#desequilíbrio-de-ligação">Desequilíbrio de Ligação</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/paulobarros/curso-plink/issues/new" class="toc-action">Criar uma issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -192,8 +218,79 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="porquê-utilizar-snps-como-marcadores-moleculares" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="porquê-utilizar-snps-como-marcadores-moleculares">Porquê utilizar SNPs como Marcadores Moleculares?</h2>
+<p>SNPs são variações genéticas que envolvem a substituição de um único nucleotídeo por outro em uma posição específica do genoma. Essas variações podem ocorrer tanto em regiões codificantes como não codificantes do DNA. Eles representam a forma mais comum de variação genética presente em todas as espécies estudadas até o momento <span class="citation" data-cites="shendure2008next luo2016genome">[<a href="#ref-shendure2008next" role="doc-biblioref">1</a>,<a href="#ref-luo2016genome" role="doc-biblioref">2</a>]</span>. Os SNPs são altamente polimórficos e podem ser encontrados em diferentes frequências em diferentes populações, permitindo o estudo da diversidade genética dentro e entre espécies <span class="citation" data-cites="rafalski2002applications">[<a href="#ref-rafalski2002applications" role="doc-biblioref">3</a>]</span>. Para que a substituição seja considerada um SNP, ela precisa estar presente em uma frequência mínima de 1% em uma população. Isso significa que a variação genética observada é comum o suficiente para ser considerada uma característica da população em questão. Vale ressaltar que essa frequência pode variar dependendo do contexto e da população em análise <span class="citation" data-cites="zhang2018identification brookes1999essence">[<a href="#ref-zhang2018identification" role="doc-biblioref">4</a>,<a href="#ref-brookes1999essence" role="doc-biblioref">5</a>]</span>.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../images/snp.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption margin-caption">Fonte: https://bit.ly/3ZuvfVR</figcaption><p></p>
+</figure>
+</div>
+<p>Os SNPs são amplamente distribuídos no genoma, e sua alta frequência e polimorfismo tornam-nos excelentes candidatos a marcadores moleculares para estudos de variabilidade genética, conservação de espécies e melhoramento genético. Além disso, eles podem ser facilmente detectados por técnicas moleculares como PCR, sequenciamento de nova geração e genotipagem de matriz de SNPs <span class="citation" data-cites="kwok2001methods">[<a href="#ref-kwok2001methods" role="doc-biblioref">6</a>]</span>. Os SNPs têm sido amplamente utilizados na Biologia da Conservação para estudar a estrutura populacional e a variabilidade genética das espécies em risco de extinção. Eles permitem a identificação de populações com baixa variabilidade genética e o monitoramento do fluxo gênico entre populações, o que é fundamental para a elaboração de planos de conservação eficazes <span class="citation" data-cites="frankham1995conservation">[<a href="#ref-frankham1995conservation" role="doc-biblioref">7</a>]</span>.</p>
+<p>Os SNPs também têm sido amplamente utilizados no melhoramento genético de plantas e animais. Eles permitem a seleção de indivíduos com características desejáveis com base em sua composição genética, o que pode aumentar a eficiência do processo de melhoramento. Além disso, a genotipagem de SNPs pode ser usada para estudar a estrutura populacional de espécies cultivadas e identificar variedades com alto valor nutricional ou resistência a doenças <span class="citation" data-cites="hyten2010high">[<a href="#ref-hyten2010high" role="doc-biblioref">8</a>]</span>. Embora os SNPs sejam excelentes marcadores moleculares, eles têm algumas limitações. Em particular, eles não são úteis para detectar grandes rearranjos cromossômicos, inserções e deleções. Além disso, o custo associado à genotipagem de SNPs pode ser um obstáculo para estudos em larga escala <span class="citation" data-cites="eichler2010missing">[<a href="#ref-eichler2010missing" role="doc-biblioref">9</a>]</span>.</p>
+</section>
+<section id="desequilíbrio-de-ligação" class="level2">
+<h2 class="anchored" data-anchor-id="desequilíbrio-de-ligação">Desequilíbrio de Ligação</h2>
+<p>Um conceito extremamente importante em análises genômicas é o de <strong>desequilíbrio de ligação</strong>, também conhecido como desequilíbrio de haplótipos ou LD (<em>Linkage Disequilibrium</em>). <strong>O LD é definido como a não aleatoriedade da associação entre dois ou mais loci no genoma.</strong> Em outras palavras, o LD ocorre quando alelos de diferentes loci são herdados juntos com mais frequência do que seria esperado ao acaso <span class="citation" data-cites="slatkin2008linkage">[<a href="#ref-slatkin2008linkage" role="doc-biblioref">10</a>]</span>.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/IkuMJVCXGAU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>A importância do LD está relacionada à sua capacidade de influenciar a identificação de associações genéticas em estudos de genômica, especialmente em estudos de associação de genoma inteiro (GWAS) que utilizam SNPs como marcadores moleculares <span class="citation" data-cites="zhang2010mixed">[<a href="#ref-zhang2010mixed" role="doc-biblioref">11</a>]</span>. Isso ocorre porque os SNPs estão em LD com outros loci não genotipados, ou seja, com outras variações genéticas que podem influenciar uma determinada característica fenotípica. Dessa forma, o LD pode ser usado para mapear genes associados a doenças complexas e a características quantitativas em diferentes populações <span class="citation" data-cites="vignal2002review">[<a href="#ref-vignal2002review" role="doc-biblioref">12</a>]</span>.</p>
+<p>Por outro lado, o LD também pode afetar a precisão dos resultados dos estudos de associação genômica, pois pode levar a falsos positivos ou falsos negativos na identificação de associações entre um determinado SNP e um fenótipo <span class="citation" data-cites="gao2013interaction">[<a href="#ref-gao2013interaction" role="doc-biblioref">13</a>]</span>. Além disso, o LD pode afetar a eficiência da seleção natural e artificial em populações, pois pode influenciar a co-ocorrência de alelos em um determinado locus e, portanto, afetar a frequência de alelos em outros loci associados <span class="citation" data-cites="lecorre2003genetic">[<a href="#ref-lecorre2003genetic" role="doc-biblioref">14</a>]</span>.</p>
+<p>Vários métodos e ferramentas têm sido desenvolvidos para analisar e modelar o LD em populações, incluindo análise de haplótipos, estatísticas de D’ e r² e modelos de regressão linear <span class="citation" data-cites="marchini2010genotype hayes2003novel">[<a href="#ref-marchini2010genotype" role="doc-biblioref">15</a>,<a href="#ref-hayes2003novel" role="doc-biblioref">16</a>]</span>. Essas técnicas permitem a identificação de regiões genômicas que são altamente correlacionadas entre si e podem ser utilizadas para inferir a associação entre o genótipo e o fenótipo em estudos de associação genômica.</p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<p><strong>Referências</strong></p>
+<div id="ref-shendure2008next" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Shendure J, Ji H. Next-generation DNA sequencing. Nature biotechnology. 2008;26: 1135–1145. </div>
+</div>
+<div id="ref-luo2016genome" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Luo L, Hao K. Genome-wide association studies in the post-GWAS era. SpringerPlus. 2016;5: 1–8. </div>
+</div>
+<div id="ref-rafalski2002applications" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Rafalski A. Applications of single nucleotide polymorphisms in crop genetics. Current Opinion in Plant Biology. 2002;5: 94–100. </div>
+</div>
+<div id="ref-zhang2018identification" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Zhang Z, Sun C, Chen M, Wang Y, Zhu W, Xu L, et al. Identification of genome-wide single nucleotide polymorphisms in allopolyploid crop Brassica napus. BMC genomics. 2018;19: 1–16. </div>
+</div>
+<div id="ref-brookes1999essence" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Brookes AJ. The essence of SNPs. Gene. 1999;234: 177–186. </div>
+</div>
+<div id="ref-kwok2001methods" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Kwok P-Y. Methods for genotyping single nucleotide polymorphisms. Annual review of genomics and human genetics. 2001;2: 235–258. </div>
+</div>
+<div id="ref-frankham1995conservation" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Frankham R. Conservation genetics. Annual review of genetics. 1995;29: 305–327. </div>
+</div>
+<div id="ref-hyten2010high" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Hyten DL, Song Q, Fickus EW, Quigley CV, Lim J-Y, Choi I, et al. High-throughput SNP discovery and assay development in common bean. BMC genomics. 2010;11: 1–20. </div>
+</div>
+<div id="ref-eichler2010missing" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Eichler EE, Flint J, Gibson G, Kong A, Leal SM, Moore JH, et al. Missing heritability and strategies for finding the underlying causes of complex disease. Nature reviews Genetics. 2010;11: 446–450. </div>
+</div>
+<div id="ref-slatkin2008linkage" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Slatkin M. Linkage disequilibrium—understanding the evolutionary past and mapping the medical future. Nature Reviews Genetics. 2008;9: 477–485. </div>
+</div>
+<div id="ref-zhang2010mixed" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Zhang Z, Ersoz E, Lai C-Q, Todhunter RJ, Tiwari HK, Gore MA, et al. Mixed linear model approach adapted for genome-wide association studies. Nature genetics. 2010;42: 355–360. </div>
+</div>
+<div id="ref-vignal2002review" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline">Vignal A, Milan D, SanCristobal M, Eggen A’e. A review on SNP and other types of molecular markers and their use in animal genetics. Genetics Selection Evolution. 2002;34: 275–305. </div>
+</div>
+<div id="ref-gao2013interaction" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">Gao X, Becker LC, Becker DM, Starmer JD, Province MA, Ida Chen Y-D, et al. An interaction analysis between endothelial nitric oxide synthase gene polymorphisms and metabolic syndrome in a Han Chinese population. PloS one. 2013;8: e63168. </div>
+</div>
+<div id="ref-lecorre2003genetic" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Le Corre V, Kremer A. The genetic differentiation at quantitative trait loci under balancing selection. Genetics. 2003;164: 431–439. </div>
+</div>
+<div id="ref-marchini2010genotype" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Marchini J, Howie B. Genotype imputation for genome-wide association studies. Nature Reviews Genetics. 2010;11: 499–511. </div>
+</div>
+<div id="ref-hayes2003novel" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">Hayes BJ, Visscher PM, McPartlan HC, Goddard ME. Novel multilocus measure of linkage disequilibrium to estimate past effective population size. Genome research. 2003;13: 635–643. </div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -459,7 +556,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left"><img src="images/frogbird.png" height="45" alt="Caption"> &nbsp; <strong>© CC-By Paulo Barros, 2023</strong></div>   
+    <div class="nav-footer-left"><img src="https://raw.githubusercontent.com/paulobarros/curso-plink/8a1fe450d1a9d349ac7ec58d235748309fd786d0/images/frogbird.png" height="45" alt="Caption"> &nbsp; <strong>© CC-By Paulo Barros, 2023</strong></div>   
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
