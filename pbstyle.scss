@@ -20,18 +20,15 @@ $code-bg: rgba(#ECEFF1,1);
 
 /*-- scss:rules --*/
 
-.ratio-16x9 {
-    --bs-aspect-ratio: calc(9 / 16 * 100%);
-}
-
-.ratio {
-    position: relative;
-    width: 100%;
-}
 
 #refs {
   border-top: solid 1px #7A979A;
   margin-top: 50px;
   padding-top: 5px;
   font-size: 14px;
+}
+
+.column-margin.column-container p {
+    color: #00796B;
+  
 }

@@ -1,4 +1,41 @@
 ---
 title: "Marcadores Moleculares"
 lang: pt-BR
+cap-location: margin
+csl: ../plos-biology.csl
+bibliography: ../referencias.bib
 ---
+
+Os marcadores moleculares têm sido uma ferramenta importante em genética e biologia molecular por várias décadas. O desenvolvimento desses marcadores teve início nos anos 60 e 70, quando pesquisadores começaram a usar **enzimas de restrição** para cortar moléculas de DNA em fragmentos menores. Isso levou ao desenvolvimento de marcadores de **Polimorfismo de Comprimento de Fragmento de Restrição** (RFLP - _Restriction Fragment Length Polymorphism_), que foram usados pela primeira vez no início dos anos 80 para analisar a variação genética entre diferentes indivíduos e populações [@botstein1980construction].
+
+{{< video https://www.youtube.com/embed/7onjVBsQwQ8  title='What is the CERN?' >}}
+
+::: {.column-margin}
+Um dos pioneiros no campo dos marcadores moleculares é Alec Jeffreys, que é creditado com a descoberta da impressão digital de DNA em meados dos anos 80. Essa descoberta permitiu a identificação de indivíduos com base em seus perfis de DNA únicos e teve importantes implicações para a ciência forense e testes de paternidade [@jeffreys1985hypervariable].
+
+:::
+
+Outro desenvolvimento importante em marcadores moleculares ocorreu na década de 1990 com a descoberta de **Sequências Simples Repetitivas** (SSR - _Single Sequence Repeats_), também conhecidos como **microssatélites** ou **Sequências Simples em Tandem** (STR - _Short Tandem Repeat_). Esses marcadores consistem em repetições _tandem_ (em linha) curtas de sequências de DNA, geralmente com 2-6 nucleotídeos de comprimento, que são altamente polimórficos e podem ser facilmente amplificados por PCR. SSRs foram e ainda são utilizados em uma ampla gama de aplicações, incluindo mapeamento genético, genética de populações e forense [@powell1996polymorphism].
+
+{{< video https://youtu.be/rkdV2IXmoNE >}}
+
+
+No início dos anos 2000, o desenvolvimento de tecnologias de **genotipagem** de alto rendimento, como as plataformas Illumina e Affymetrix, levou ao uso generalizado de **Polimorfismos de Nucleotídeo Único** (SNPs - _Single Nucleotide Polymorphisms_) como marcadores moleculares. SNPs são mudanças de pares de bases únicas em sequências de DNA e são abundantes em genomas, tornando-os uma escolha ideal para genotipagem de alto rendimento e **estudos de associação de genoma amplo** (GWAS - _Genome-Wide Association Studies_). O uso de SNPs revolucionou o campo da genética e levou à identificação de variantes genéticas associadas a muitas características e doenças complexas [@frazer2009human]. Falaremos mais em detalhes sobre os SNPs.
+
+::: {.column-margin}
+A **genotipagem** é o processo de determinar diferenças na composição genética de um indivíduo, examinando a sequência de DNA do indivíduo usando ensaios biológicos e comparando-a com a sequência de outro indivíduo ou uma sequência de referência. Revela os alelos que um indivíduo herdou de seus pais.
+:::
+
+Mais recentemente, o desenvolvimento de tecnologias de sequenciamento de nova geração (NGS - _Next Generation Sequencing_) permitiu a identificação de variações genéticas em escala genômica. Sequenciamento completo do genoma (WGS - _Whole Genome Sequencing_) e genotipagem por sequenciamento (GBS - _Genotyping by Sequencing_) são duas das técnicas baseadas em NGS mais amplamente utilizadas para genotipagem e análise do genoma. Essas tecnologias ampliaram muito o escopo e a resolução da análise genética e forneceram informações importantes sobre a genética de várias espécies [@elshire2011robust].
+
+Uma pesquisadora notável no desenvolvimento de marcadores moleculares é Mary-Dell Chilton, que, juntamente com seus colegas da Universidade de Washington, desenvolveu o sistema de transformação mediado por Agrobacterium na década de 1970, que permitiu a transferência de DNA estrangeiro para células vegetais. Essa descoberta levou ao desenvolvimento de culturas geneticamente modificadas e teve implicações significativas para a agricultura [@chilton1982agrobacterium].
+
+Outro contribuinte importante para o campo dos marcadores moleculares é Eric Lander, que esteve envolvido no Projeto Genoma Humano e ajudou a desenvolver o primeiro mapa de SNPs de alta densidade do genoma humano. Lander também foi fundamental no desenvolvimento de várias iniciativas genômicas, incluindo o projeto _Encyclopedia of DNA Elements_ (ENCODE), que visa identificar todos os elementos funcionais no genoma humano [@lander2001initial].
+
+Além disso, vários outros pesquisadores fizeram importantes contribuições para o desenvolvimento e aplicação de marcadores moleculares, incluindo Craig Venter, que liderou o esforço privado para sequenciar o genoma humano, e Svante Pääbo, que esteve envolvido no sequenciamento de vários genomas de hominídeos antigos [@venter2001sequence; @reich2010genetic].
+
+No geral, o desenvolvimento de marcadores moleculares tem sido um esforço colaborativo envolvendo muitos pesquisadores ao longo de várias décadas. O desenvolvimento de vários tipos de marcadores, bem como as tecnologias de genotipagem de alto rendimento e as tecnologias de sequenciamento de nova geração que surgiram nos últimos anos, ampliaram enormemente nossa capacidade de analisar a variação genética e tiveram importantes implicações para muitos campos de estudo, incluindo genética, evolução, agricultura, conservação e medicina.
+
+::: {#refs}
+**Referências**
+:::

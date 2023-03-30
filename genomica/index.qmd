@@ -2,21 +2,21 @@
 title: "Genômica"
 lang: pt-BR
 cap-location: margin
+csl: ../plos-biology.csl
+bibliography: ../referencias.bib
 ---
 
-Chamados de **genoma** o conjunto completo de instruções genéticas de um organismo. Todos os genomas são codificados por **ácidos nucleicos**, sendo **DNA** ou **RNA**.
+A genômica é um ramo da biologia molecular que estuda a estrutura, função e evolução dos genomas - o conjunto completo de DNA dentro de um organismo. O surgimento da genômica revolucionou o campo da pesquisa biológica, fornecendo informações sobre a base genética de traços e doenças complexas, e facilitando o desenvolvimento de novas ferramentas diagnósticas e terapias [@balakrishnan2020guide]. 
 
-::: {#fig-dna}
+Nas últimas duas décadas, avanços em tecnologias de sequenciamento de alto rendimento e bioinformática permitiram que os pesquisadores decodificassem os genomas de milhares de espécies, de bactérias a humanos, e comparassem seu material genético e padrões de expressão [@metzker2010sequencing].
 
-![](../images/DNA-vs-RNA.jpg){width=500}
+Uma das conquistas mais significativas da genômica foi o sequenciamento do genoma humano, concluída em 2003 [@lander2001initial]. Este projeto histórico envolveu a colaboração de centenas de cientistas de todo o mundo, que trabalharam juntos para determinar a sequência de mais de três bilhões de pares de bases que compõem o código genético humano. Desde então, o sequenciamento do genoma humano se tornou um recurso valioso para a pesquisa biomédica, fornecendo informações sobre a base genética de muitas doenças, incluindo câncer, doenças cardíacas e distúrbios neurodegenerativos [@venter2001sequence].
 
-DNA vs RNA
+Além de suas aplicações biomédicas, a genômica também contribuiu para nossa compreensão dos processos evolutivos e da biodiversidade. Ao comparar os genomas de diferentes espécies, os pesquisadores podem reconstruir a história evolutiva da vida na Terra e identificar as mudanças genéticas que impulsionaram a divergência e adaptação das espécies [@ellegren2014genome]. A genômica também permitiu a descoberta de novas espécies e a identificação de marcadores genéticos que podem ser usados para rastrear o movimento e a distribuição de populações [@hoffman2020genomic].
 
-:::
+Apesar do tremendo progresso que foi feito na pesquisa genômica, muitos desafios ainda persistem. Um dos principais desafios é a interpretação dos dados genômicos, que podem ser complexos e difíceis de analisar. Para enfrentar esse desafio, os pesquisadores estão desenvolvendo novos métodos e ferramentas para análise de dados, incluindo algoritmos de aprendizado de máquina e técnicas de análise de rede [@singh2020machine]. Outro desafio são as implicações éticas e sociais da pesquisa genômica, incluindo questões relacionadas à privacidade, discriminação genética e uso de dados genéticos em investigações criminais [@clayton2014ethical].
 
-> **Genômica** é o campo da genética que busca compreender o conteúdo, organização, função, e evolução da informação genética contida em todo o genoma. [@pierce2012genetics]
-
-
+A genômica tem exercido um impacto profundo no campo da pesquisa biológica, fornecendo novas informações sobre a base genética de doenças, processos evolutivos e biodiversidade. Apesar dos desafios que ainda existem, a genômica está preparada para continuar impulsionando avanços na pesquisa biomédica e em outras áreas da ciência nos próximos anos.
 
 ::: {#refs}
 **Referências**
