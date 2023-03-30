@@ -13,7 +13,7 @@ website:
   
   page-footer:
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "![Caption](images/frogbird.png){height=45}  &nbsp;  **&copy; CC-By Paulo Barros, 2023**"
+    left: "![Caption](https://raw.githubusercontent.com/paulobarros/curso-plink/8a1fe450d1a9d349ac7ec58d235748309fd786d0/images/frogbird.png){height=45}  &nbsp;  **&copy; CC-By Paulo Barros, 2023**"
     
   sidebar:
     logo: "images/logoplink.png"

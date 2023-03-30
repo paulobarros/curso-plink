@@ -2,4 +2,35 @@
 title: "Aplicações"
 lang: pt-BR
 cap-location: margin
+csl: ../plos-biology.csl
+bibliography: ../referencias.bib
 ---
+
+Genômica é uma área de pesquisa que tem revolucionado a Biologia, a Agricultura e a Medicina, permitindo que os cientistas estudem o DNA dos organismos e entendam a relação entre a informação genética e as características físicas e fisiológicas. A aplicação da genômica tem permitido avanços em diversas áreas, como a Biologia da Conservação, o Melhoramento Animal e a Medicina Humana. A seguir, serão apresentados dois exemplos de estudos em cada uma dessas áreas.
+
+### Biologia da Conservação:
+
+Pesquisadores usaram sequenciamento de genoma para entender a estrutura genética de populações de ursos polares [@peacock2015implications]. O objetivo era entender como as mudanças climáticas afetaram a diversidade genética desses animais. Os resultados mostraram que os ursos polares apresentam uma grande perda de diversidade genética devido à mudança climática, que afetou seu habitat e populações.
+
+Outro estudo utilizou técnicas de genômica para avaliar a diversidade genética de uma população de micos-leões-dourados em fragmentos florestais do Brasil [@ruiz2012genetic]. O objetivo era entender o impacto da fragmentação do habitat na diversidade genética desses animais. Os resultados mostraram que a diversidade genética dos micos-leões-dourados é afetada pela fragmentação do habitat, o que pode levar à perda de diversidade genética e aumentar o risco de extinção dessas espécies.
+
+### Melhoramento Animal
+
+Pesquisadores utilizaram sequenciamento de genoma para identificar genes associados a características importantes em bovinos [@jiang2017genomic]. O objetivo era identificar marcadores genéticos que pudessem ser usados em programas de melhoramento genético. Os resultados mostraram que foram identificados vários genes associados à produção de leite, resistência a doenças e outras características importantes em bovinos.
+
+Outro estudo usou técnicas de genômica para avaliar a diversidade genética em populações de salmão selvagem e criado em cativeiro [@hess2016population]. O objetivo era entender a relação entre a diversidade genética e a adaptação ao ambiente. Os resultados mostraram que a diversidade genética é maior em populações de salmão selvagem do que em populações criadas em cativeiro, e que a diversidade genética está relacionada à adaptação ao ambiente.
+
+### Medicina Humana
+
+Pesquisadores usaram técnicas de sequenciamento de genoma para identificar genes associados a doenças cardíacas em humanos [@pjanic2021genetic]. O objetivo era entender a base genética de doenças cardíacas comuns. Os resultados mostraram que foram identificados vários genes associados a doenças cardíacas, e que esses genes podem ser usados para desenvolver novos tratamentos e prevenção.
+
+Outro estudo usou técnicas de genômica para entender a base genética de doenças raras [@mamedov2017next]. O objetivo era entender como mutações genéticas causam doenças raras e desenvolver terapias personalizadas. Os resultados mostraram que foram identificadas mutações em genes específicos associados a diversas doenças raras, o que pode levar ao desenvolvimento de terapias personalizadas. Os resultados mostraram que foram identificadas mutações em genes específicos associados a diversas doenças raras, o que pode levar ao desenvolvimento de terapias personalizadas para essas doenças.
+
+
+A genômica é uma área de grande potencial em várias outras áreas além da Biologia da Conservação, Melhoramento Animal e Medicina Humana. Por exemplo, a genômica tem sido utilizada na agricultura para aumentar a produção de alimentos de forma mais sustentável e eficiente, por meio do desenvolvimento de plantas e animais com características desejáveis.Além disso, a genômica também está sendo aplicada na área forense para a identificação de indivíduos e a resolução de casos criminais. Com o avanço das tecnologias de sequenciamento genético, é possível obter informações genéticas precisas a partir de amostras biológicas como sangue, saliva e cabelo, possibilitando a identificação de pessoas com base em seu perfil genético.
+
+A genômica é uma área em constante evolução e que tem um grande potencial para contribuir em diversos campos, desde a conservação de espécies até a resolução de crimes. É importante que os avanços nesta área sejam acompanhados de uma reflexão crítica sobre seus possíveis impactos éticos, sociais e ambientais, a fim de garantir que a genômica seja utilizada de forma responsável e benéfica para a sociedade como um todo.
+
+::: {#refs}
+**Referências**
+:::

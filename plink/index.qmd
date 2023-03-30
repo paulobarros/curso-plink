@@ -2,4 +2,10 @@
 title: "PLINK"
 lang: pt-BR
 cap-location: margin
+csl: ../plos-biology.csl
+bibliography: ../referencias.bib
 ---
+
+::: {#refs}
+**Referências**
+:::

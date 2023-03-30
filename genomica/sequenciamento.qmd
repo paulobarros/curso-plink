@@ -6,6 +6,27 @@ csl: ../plos-biology.csl
 bibliography: ../referencias.bib
 ---
 
+A genotipagem é uma técnica amplamente utilizada para detectar variações genéticas em indivíduos. As variações genéticas incluem polimorfismos de nucleotídeo único (SNPs), inserções/deleções (INDELs), variações do número de cópias (CNVs) e rearranjos cromossômicos maiores. A genotipagem é útil em muitos campos, como estudos de associação genômica ampla, medicina de precisão, genética forense e diagnóstico molecular. **O objetivo da genotipagem é identificar alelos específicos presentes em um indivíduo em locais específicos do genoma**.
+
+Existem várias plataformas de genotipagem disponíveis, incluindo microarranjos, sequenciamento de nova geração (NGS) e tecnologia de matriz de genotipagem. A plataforma de microarranjos utiliza sondas específicas de sequência para detectar SNPs e outras variações genéticas. O sequenciamento de nova geração utiliza técnicas de sequenciamento de alta velocidade para gerar dados de sequenciamento em larga escala. A tecnologia de matriz de genotipagem utiliza marcadores de genotipagem específicos para detectar SNPs e outras variações genéticas. Cada plataforma tem vantagens e desvantagens, incluindo custo, tempo de processamento, precisão e sensibilidade.
+
+Os principais métodos de genotipagem incluem TaqMan, Sequenom, iPLEX, Pyrosequencing e Illumina. O método TaqMan é uma técnica de sondagem fluorescente que utiliza sondas marcadas com fluoróforos e quenchers para detectar SNPs específicos. O método Sequenom é baseado em espectrometria de massa e utiliza ensaios de extensão de primer para detectar SNPs. O método iPLEX é baseado em espectrometria de massa e utiliza um ensaio de extensão de primer em tempo real para detectar SNPs e INDELs. O método Pyrosequencing utiliza uma reação de sequenciamento em tempo real para detectar SNPs e INDELs. O método Illumina é baseado em matriz de genotipagem e utiliza sondas de DNA específicas para detectar SNPs e outras variações genéticas.
+
+A genotipagem pode ser utilizada em várias aplicações, incluindo estudos de associação genômica ampla (GWAS), que buscam identificar genes associados a doenças complexas, como diabetes tipo 2 [@mahajan2018refining]. A genotipagem também pode ser usada em medicina de precisão, onde é utilizada para prever a eficácia de medicamentos e personalizar o tratamento para pacientes individuais [@collins2015new]. A genotipagem também é útil em genética forense, onde é utilizada para identificar indivíduos em casos criminais [@kayser2011forensic].
+
+Cada plataforma de genotipagem tem suas próprias vantagens e desvantagens. A tecnologia de microarranjos é geralmente menos sensível do que o sequenciamento de nova geração, mas é mais barata e pode ser usada para genotipar um grande número de amostras simultaneamente. O sequenciamento de nova geração é mais sensível e pode detectar variações genéticas que não são detectáveis por microarranjos, mas é mais caro e pode ser mais demorado para processar um grande número de amostras. A tecnologia de matriz de genotipagem é relativamente rápida e precisa, mas é limitada ao número de marcadores de genotipagem disponíveis em um determinado chip.
+
+{{< video https://youtu.be/DHcCv6u0I3M >}}
+
+::: {.column-margin}
+Em seu canal no youtube o Professor Gábor Mészáros apresenta uma introdução do processo de Genotipagem via _BeadChip_ da plataforma Illumina.
+:::
+
+Uma comparação direta entre plataformas de genotipagem foi realizada em um estudo de 2016 que comparou o sequenciamento de nova geração com a tecnologia de matriz de genotipagem em uma amostra de 1.244 indivíduos. Os resultados mostraram que o sequenciamento de nova geração foi mais sensível na detecção de variantes raras e CNVs do que a tecnologia de matriz de genotipagem, mas a tecnologia de matriz de genotipagem foi mais precisa na genotipagem de SNPs [@niemi2016common].
+
+Outro estudo comparou várias plataformas de genotipagem, incluindo microarranjos e sequenciamento de nova geração, em uma amostra de 92 indivíduos. Os resultados mostraram que o sequenciamento de nova geração teve a maior taxa de descoberta de novos SNPs, enquanto os microarranjos tiveram a menor taxa de falsos positivos [@jia2017comparative].
+
+A genotipagem é uma técnica importante para a identificação de variações genéticas em indivíduos e pode ser usada em uma variedade de aplicações, desde estudos de associação genômica ampla até medicina de precisão e genética forense. Cada plataforma de genotipagem tem suas próprias vantagens e desvantagens, e a escolha da plataforma depende das necessidades específicas do projeto em questão.
 
 
 ::: {#refs}
