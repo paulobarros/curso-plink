@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -42,6 +61,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -65,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -170,10 +191,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#ped-files" id="toc-ped-files" class="nav-link active" data-scroll-target="#ped-files">PED files</a></li>
+  <li><a href="#colunas-iniciais" id="toc-colunas-iniciais" class="nav-link" data-scroll-target="#colunas-iniciais">Colunas iniciais</a></li>
+  <li><a href="#genótipos" id="toc-genótipos" class="nav-link" data-scroll-target="#genótipos">Genótipos</a></li>
+  <li><a href="#map-files" id="toc-map-files" class="nav-link" data-scroll-target="#map-files">MAP files</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/paulobarros/curso-plink/issues/new" class="toc-action">Criar uma issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -192,8 +222,157 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Os arquivos de entrada para as análises no PLINK nada mais são que arquivos de texto em formatos específicos reconhecidos pelo programa<span class="citation" data-cites="plinkdatadoc">[<a href="#ref-plinkdatadoc" role="doc-biblioref">1</a>]</span>. O PLINK possui seus formatos de entrada padrão, que são os arquivos de genótipo (<strong>PED</strong>) e os arquivos de mapa (<strong>MAP</strong>). É possível também recodificar estes arquivos em um formato binário (<strong>BED</strong>), de menor tamanho e leitura mais eficiente pelo PLINK. Estes são os formatos de arquivo que vamos explorar durante o curso. Entretanto, o PLINK também aceita outros formatos conhecidos como o VCF e Oxford. Para conhecer sobre todos os formatos aceitos pelo PLINK recomendo que consultem a vasta documentação do programa:</p>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="fa-solid fa-book" aria-label="book"></i> <a href="https://www.cog-genomics.org/plink/1.9">Documentação do PLINK</a>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A documentação de qualquer software ou pacote é sempre sua maior aliada! <strong>LEIAM A DOCUMENTAÇÃO!</strong> Elas existem por um motivo!</p>
+</div>
+</div>
+<section id="ped-files" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="ped-files">PED files</h3>
+<p>Arquivos <code>.PED</code> são o formato original de entrada com informações sobre <strong>amostras</strong>, <strong>pedigree</strong> e <strong>genótipos</strong>. Geralmente são acompanhados de um arquivo <code>.MAP</code>, mas não obrigatoriamente. Cada linha do arquivo representa um indivíduo e as colunas representam informações como o ID do indivíduo,pedigree, o sexo, o fenótipo e os genótipos para cada marcador genético. As colunas são delimitadas por espaço ou tabulações, e o arquivo não possui uma linha de cabeçalho identificando as colunas.</p>
+<pre><code>100 100002140 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100003600 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 2 2 1 1 1 1 1 1 2 2 
+100 100005750 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100005910 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100006430 0 0 1 -9 1 1 1 2 1 2 2 2 1 2 2 2 2 1 2 2 1 2 1 1 1 1 2 2 
+100 100007080 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 2 2 
+100 100007490 0 0 1 -9 2 1 2 2 1 1 1 1 2 2 1 2 2 1 2 2 1 1 1 1 1 1 2 2 
+100 100007510 0 0 1 -9 1 1 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 2 2 
+100 100017170 0 0 1 -9 1 1 2 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 1 1 1 1 2 2 
+100 100017450 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2</code></pre>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Exemplo de um arquivo .PED do PLINK. As <strong>seis primeiras colunas</strong> são informativas das amostras. A partir da sétima coluna começam os genótipos, um indivíduo por linha. Veremos as diferentes formas de configurar e ler um arquivo PED.</p>
+</div></div></section>
+<section id="colunas-iniciais" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="colunas-iniciais">Colunas iniciais</h3>
+<p>As seis primeiras colunas de um arquivo PED dizem respeito a informações importantes sobre a amostra.</p>
+<pre><code>1. ID da Família
+2. ID do Indivíduo/Amostra
+3. ID do pai
+4. ID da mãe
+5. Sexo
+6. Fenótipo</code></pre>
+<p>Nem todo artigo PED estará completo, entretanto, existem <em>flags</em> (opções de comando) no PLINK permitem a <a href="https://www.cog-genomics.org/plink/1.9/input#plink_irreg">leitura de arquivos PED incompletos</a> com alguns destes campos ausentes do arquivo. Com esta alteração, somente o <strong>ID do Indivíduo/Amostra é um campo obrigatório</strong> no arquivo PED.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Formato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. ID da Família</td>
+<td>Texto alfanumérico não iniciado por <code>#</code></td>
+</tr>
+<tr class="even">
+<td>2. ID do Indivíduo<sup><b>a</b></sup></td>
+<td>Texto alfanumérico não iniciado por <code>#</code></td>
+</tr>
+<tr class="odd">
+<td>3. ID do Pai</td>
+<td>Texto alfanumérico não iniciado por <code>#</code>. Se ausente valor deve ser <code>0</code></td>
+</tr>
+<tr class="even">
+<td>4. ID da Mãe</td>
+<td>Texto alfanumérico não iniciado por <code>#</code>. Se ausente valor deve ser <code>0</code></td>
+</tr>
+<tr class="odd">
+<td>5. Sexo</td>
+<td><code>1</code> = Macho, <code>2</code>= Fêmea, <code>0</code> = Desconhecido</td>
+</tr>
+<tr class="even">
+<td>6. Fenótipo</td>
+<td>Quantitativo (contínuo) ou no formato de caso/controle (<code>1</code> = controle,<code>2</code>=caso), caso ausente <code>-9</code></td>
+</tr>
+</tbody>
+</table>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><sup><b>a</b></sup> O ID do Indivíduo é o único campo obrigatório em um PED file, uma vez que as flags permitem a leitura de um arquivo inconpleto. No caso de utilizadão do campo de ID de Família é importante notar que a combinação das duas primeiras colunas sejam únicas, sem repetições entre as amostras. Para mais informações <a href="https://www.cog-genomics.org/plink/1.9/formats#fam">consulte o manual do PLINK</a></p>
+</div></div></section>
+<section id="genótipos" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="genótipos">Genótipos</h3>
+<p>Os genótipos são informados a partir da sétima coluna (em caso de um .PED completo). Devem ser também delimitados por espaço ou tabulações. Os genótipos podem ser representados por qualquer caracter (números ou letras), exceto pelo <code>0</code> que é designado como o caracter de <em>missing</em>.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Muita Atenção!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Todos os marcadores deverão ser bialélicos</strong>. Todos os SNPs (haploides ou não) deverão ter dois alelos especificados.</p>
+</div>
+</div>
+<pre><code>FAM001  1  0 0  1  2  A A  G G  A C 
+FAM001  2  0 0  1  2  A A  A G  0 0
+....</code></pre>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>No primeiro exemplo os genótipos estão sendo informados como as próprias bases nucleotídicas (A,T,G,C). Como o PLINK assume os marcadores como bialélicos, cada par de letras representa os dois alelos de um SNP. O primeiro par <code>A A</code> são os dois alelos do SNP1, o par <code>G G</code> os dois alelos do SNP2.. e assim por diante. No segundo exemplo os alelos são representados pelos números <code>1</code> e <code>2</code>. Indivíduos <code>1 1</code> seriam homozigotos para o primeiro alelo, <code>1 2</code> ou <code>2 1</code> heterozigotos, e <code>2 2</code> homozigotos pro segundo alelo.</p>
+</div></div><pre><code>100 100002140 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100003600 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 2 2 1 1 1 1 1 1 2 2 
+100 100005750 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100005910 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 2 2 1 2 1 1 1 1 2 2
+.....</code></pre>
+<p>Para cromossomos Haploides (cromossomos X e Y em machos, DNA mitocondrial) os genótipos devem ser especificados como homozigotos. O caracter padrão para <em>missing</em> <code>0</code> pode ser alterado com <em>flags</em> no PLINK. Ainda existe a opção de fornecer genótipos compactos (<em>compound genotypes</em>), nos quais os alelos são separados por barras transversais <code>A/C</code> ou concatenados <code>AC</code>. A leitura destes genótipos também é controlada por flags <span class="citation" data-cites="gondro2013genome">[<a href="#ref-gondro2013genome" role="doc-biblioref">2</a>]</span>.</p>
+</section>
+<section id="map-files" class="level3">
+<h3 class="anchored" data-anchor-id="map-files">MAP files</h3>
+<p>Os arquivos <code>.MAP</code> contém as informações a respeito dos marcadores genotipados.</p>
+<pre><code>0   rs42206466  0   148304112
+1   rs41609588  0   135098
+1   rs108982244 0   267940
+1   rs43703977  0   393248
+1   rs110887329 0   471078
+1   rs29015852  0   516404
+1   rs110936909 0   571340
+1   rs108981857 0   845494
+1   rs110467572 0   883895
+1   rs109719982 0   905632</code></pre>
+<p>Por padrão cada linha de um arquivo <code>.MAP</code> descreve um único marcador e deve conter 3 ou 4 quatro colunas:</p>
+<pre><code>1. Cromossomo
+2. rs# ou identificador do snp
+3. Distância genética (morgans)
+4. Posição em pares de base(bp units)</code></pre>
+<p>A distância genética não é obrigatória e pode ser ignorada quando se seta todos os marcadores nesta coluna para <code>0</code> ou até mesmo não estar presente no arquivo <code>.MAP</code> e ser ignorada através da <em>flag</em> apropriada. A distância genética é mais crucial em conjuntos de análises que buscam por segmentos compartilhados no genoma entre indivíduos <span class="citation" data-cites="plinkdatadoc">[<a href="#ref-plinkdatadoc" role="doc-biblioref">1</a>]</span>.</p>
+<p>Uma vez que foi desenvolvido inicialmente para análises do genoma humano, o PLINK considera como padrão o conjunto autossômico humano.</p>
+<pre><code>Autosomes                            -&gt; 1-22
+X    X chromosome                    -&gt; 23
+Y    Y chromosome                    -&gt; 24
+XY   Pseudo-autosomal region of X    -&gt; 25
+MT   Mitochondrial                   -&gt; 26</code></pre>
+<p>Já existem <em>flags</em> específicas para conjuntos cromossômicos de outros grupos (bovinos, equinos,ovinos, entre outros). Para grupos não padrão, o número permitido de cromossomos a considerar é informado na leitura dos arquivos com as <em>flags</em> necessárias.</p>
+<p>Os marcadores no genótipo não precisam estar em ordem genômica, contudo, o arquivo <code>.MAP</code> deve conter o mesmo número de marcadores que os presentes nos genótipos do arquivo <code>.PED</code> e a ordem destes dois arquivos deve sim ser a mesma para os marcadores. Por exemplo, o primeiro SNP no arquivo de genótipos que está nas colunas <code>7</code> e <code>8</code> respectivamente, deve corresponder ao marcador na linha <code>1</code> do arquivo de mapa, e assim sucessivamente.</p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<p><strong>Referências</strong></p>
+<div id="ref-plinkdatadoc" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">PLINK Datafiles. <a href="<https://zzz.bwh.harvard.edu/plink/data.shtml#ped>" class="uri">&lt;https://zzz.bwh.harvard.edu/plink/data.shtml#ped&gt;</a>; </div>
+</div>
+<div id="ref-gondro2013genome" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Gondro C, Van der Werf J, Hayes B. Genome-wide association studies and genomic prediction. Springer; 2013. </div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

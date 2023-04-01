@@ -61,6 +61,8 @@ div.csl-indent {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -189,7 +191,15 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#o-que-é-o-plink" id="toc-o-que-é-o-plink" class="nav-link active" data-scroll-target="#o-que-é-o-plink">O que é o PLINK?</a></li>
+  <li><a href="#download" id="toc-download" class="nav-link" data-scroll-target="#download">Download</a></li>
+  <li><a href="#configuração-de-ambiente" id="toc-configuração-de-ambiente" class="nav-link" data-scroll-target="#configuração-de-ambiente">Configuração de Ambiente</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/paulobarros/curso-plink/issues/new" class="toc-action">Criar uma issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -211,11 +221,65 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography">
+<section id="o-que-é-o-plink" class="level3">
+<h3 class="anchored" data-anchor-id="o-que-é-o-plink">O que é o PLINK?</h3>
+<p>PLINK é um software desenvolvido por Shaun Purcell e colaboradores <span class="citation" data-cites="purcell2007plink">[<a href="#ref-purcell2007plink" role="doc-biblioref">1</a>]</span>. PLINK é um software livre, de código aberto, que tem por objetivo ser um conjunto de ferramentas de análises de dados genômicos. O foco original do PLINK era a análise de dados de genótipo e fenótipos. Entretanto, com o avanço das tecnologias de sequenciamento, o projeto foi estendido dando origem a segunda geração do plink, desenvolvida por Chirstopher Chang <span class="citation" data-cites="chang2015second">[<a href="#ref-chang2015second" role="doc-biblioref">2</a>]</span>, sendo agora capaz de lidar com dados de GWAS e dados genéticos populacionais, lidando com informações como fase de ligação, variantes multialélicas, verossimilhança de genótipos, etc.</p>
+</section>
+<section id="download" class="level3">
+<h3 class="anchored" data-anchor-id="download">Download</h3>
+<p>O PLINK que utilizaremos neste curso é a <strong>versão 1.9 beta</strong>, binários para Windows, MAC e Linux estão disponíveis para download. É necessário realizar o download da versão compatível com o seu sistema operacional. Qualquer dúvida sobre outras versões disponíveis basta acessar <a href="https://www.cog-genomics.org/plink2/">a página oficial de download do PLINK</a>.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Baixar PLINK</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><i class="fa-brands fa-linux" aria-label="linux"></i> <a href="https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20230116.zip">Linux 64-bit</a></td>
+<td><i class="fa-brands fa-apple" aria-label="apple"></i> <a href="https://s3.amazonaws.com/plink1-assets/plink_mac_20230116.zip">macOS (64-bit)</a></td>
+<td><i class="fa-brands fa-windows" aria-label="windows"></i> <a href="https://s3.amazonaws.com/plink1-assets/plink_win64_20230116.zip">Windows 64-bit</a></td>
+</tr>
+<tr class="even">
+<td><i class="fa-brands fa-linux" aria-label="linux"></i> <a href="https://s3.amazonaws.com/plink1-assets/plink_linux_i686_20230116.zip">Linux 32-bit</a></td>
+<td></td>
+<td><i class="fa-brands fa-windows" aria-label="windows"></i> <a href="https://s3.amazonaws.com/plink1-assets/plink_win32_20230116.zip">Windows 32-bit</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configuração-de-ambiente" class="level3">
+<h3 class="anchored" data-anchor-id="configuração-de-ambiente">Configuração de Ambiente</h3>
+<p>Para algumas tarefas de manipulação dos arquivos de dados de genotipagem, precisaremos utilizar algumas linguagens adicionais como AWK, SED e BASH. Estas linguagens são nativas do Linux, portanto para acompanhar o curso de forma efetiva é necessário ter uma instalação do Linux na sua máquina, ou utilizar o ambiente do WSL (Windows Subsystem for Linxus) no Windows, que instala um core de Linux dentro da sua máquina Windows, sem a necessidade de um particionamento de disco de uma instalação tradicional de uma distribuição Linux.</p>
+<p>Preparei um módulo introdutório ao Linux no qual discuto em detalhes a instalação do WSL bem como os comandos básicos de terminal num ambiente Linux. Você pode acessar o material no link abaixo.</p>
+<div class="callout-note callout callout-style-simple callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Introdução ao Linux
+</div>
+</div>
+<section id="fa-brands-linux-material-introdução-ao-linux" class="level4 callout-body-container callout-body">
+<h4 class="anchored" data-anchor-id="fa-brands-linux-material-introdução-ao-linux"><i class="fa-brands fa-linux" aria-label="linux"></i> <a href="https://paulobarros.github.io/introducao-ao-linux/">Material Introdução ao Linux</a></h4>
+<p>É importante que vocês estejam familiarizados com os comandos básicos de terminal, uma vez que usaremos o PLINK sem uma interface gráfica, além de outras operações com arquivos somente pelo terminal.</p>
+</section>
+</div>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <p><strong>Referências</strong></p>
+<div id="ref-purcell2007plink" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Purcell S, Neale B, Todd-Brown K, Thomas L, Ferreira MA, Bender D, et al. PLINK: a tool set for whole-genome association and population-based linkage analyses. The American journal of human genetics. 2007;81: 559–575. </div>
+</div>
+<div id="ref-chang2015second" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Chang CC, Chow CC, Tellier LC, Vattikuti S, Purcell SM, Lee JJ. Second-generation PLINK: rising to the challenge of larger and richer datasets. Gigascience. 2015;4: s13742–015. </div>
+</div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
