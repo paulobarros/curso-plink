@@ -6,6 +6,37 @@ csl: ../plos-biology.csl
 bibliography: ../referencias.bib
 ---
 
+### O que é o PLINK?
+
+PLINK é um software desenvolvido por Shaun Purcell e colaboradores [@purcell2007plink]. PLINK é um software livre, de código aberto, que tem por objetivo ser um conjunto de ferramentas de análises de dados genômicos. O foco original do PLINK era a análise de dados de genótipo e fenótipos. Entretanto, com o avanço das tecnologias de sequenciamento, o projeto foi estendido dando origem a segunda geração do plink, desenvolvida por Chirstopher Chang [@chang2015second], sendo agora capaz de lidar com dados de GWAS e dados genéticos populacionais, lidando com informações como fase de ligação, variantes multialélicas, verossimilhança de genótipos, etc.
+
+### Download
+
+O PLINK que utilizaremos neste curso é a **versão 1.9 beta**, binários para Windows, MAC e Linux estão disponíveis para download. É necessário realizar o download da versão compatível com o seu sistema operacional. Qualquer dúvida sobre outras versões disponíveis basta acessar [a página oficial de download do PLINK](https://www.cog-genomics.org/plink2/).
+
+
+| | Baixar PLINK | |
+| --- | --- | --- |
+| {{< fa brands linux >}} [Linux 64-bit](https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20230116.zip) | {{< fa brands apple >}} [macOS (64-bit)](https://s3.amazonaws.com/plink1-assets/plink_mac_20230116.zip) | {{< fa brands windows >}} [Windows 64-bit](https://s3.amazonaws.com/plink1-assets/plink_win64_20230116.zip) |
+| {{< fa brands linux >}} [Linux 32-bit](https://s3.amazonaws.com/plink1-assets/plink_linux_i686_20230116.zip) | | {{< fa brands windows >}} [Windows 32-bit](https://s3.amazonaws.com/plink1-assets/plink_win32_20230116.zip) |
+
+### Configuração de Ambiente
+
+Para algumas tarefas de manipulação dos arquivos de dados de genotipagem, precisaremos utilizar algumas linguagens adicionais como AWK, SED e BASH. Estas linguagens são nativas do Linux, portanto para acompanhar o curso de forma efetiva é necessário ter uma instalação do Linux na sua máquina, ou utilizar o ambiente do WSL (Windows Subsystem for Linxus) no Windows, que instala um core de Linux dentro da sua máquina Windows, sem a necessidade de um particionamento de disco de uma instalação tradicional de uma distribuição Linux. 
+
+Preparei um módulo introdutório ao Linux no qual discuto em detalhes a instalação do WSL bem como os comandos básicos de terminal num ambiente Linux. Você pode acessar o material no link abaixo.
+
+::: {.callout-note appearance="simple"}
+
+### Introdução ao Linux
+
+#### {{< fa brands linux >}} [Material Introdução ao Linux](https://paulobarros.github.io/introducao-ao-linux/) 
+
+É importante que vocês estejam familiarizados com os comandos básicos de terminal, uma vez que usaremos o PLINK sem uma interface gráfica, além de outras operações com arquivos somente pelo terminal.
+
+:::
+
+
 ::: {#refs}
 **Referências**
 :::

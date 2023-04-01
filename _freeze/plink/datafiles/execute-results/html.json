@@ -1,0 +1,14 @@
+{
+  "hash": "a770e606dc5cd0fb8c58dedfbe499053",
+  "result": {
+    "markdown": "---\ntitle: \"Formatos de Dados\"\nlang: pt-BR\ncap-location: margin\ncsl: ../plos-biology.csl\nbibliography: ../referencias.bib\n---\n\n\nOs arquivos de entrada para as análises no PLINK nada mais são que arquivos de texto em formatos específicos reconhecidos pelo programa. O PLINK possui seus formatos de entrada padrão, que são os arquivos de genótipo (**PED**) e os arquivos de mapa (**MAP**). É possível também recodificar estes arquivos em um formato binário (**BED**), de menor tamanho e leitura mais eficiente pelo PLINK. Estes são os formatos de arquivo que vamos explorar durante o curso. Entretanto, o PLINK também aceita outros formatos conhecidos como o VCF e Oxford. Para conhecer sobre todos os formatos aceitos pelo PLINK recomendo que consultem a vasta documentação do programa:\n\n::: {.callout-note appearance=\"minimal\"}\n\n##### {{< fa book >}} [Documentação do PLINK](https://www.cog-genomics.org/plink/1.9) \n\nA documentação de qualquer software ou pacote é sempre sua maior aliada! **LEIAM A DOCUMENTAÇÃO!** Elas existem por um motivo!\n\n:::\n\n### PED files\n\nArquivos `.PED` são o formato original de entrada com informações sobre **amostras**, **pedigree** e **genótipos**. Geralmente são acompanhados de um arquivo `.MAP`, mas não obrigatoriamente. Cada linha do arquivo representa um indivíduo e as colunas representam informações como o ID do indivíduo,pedigree, o sexo, o fenótipo e os genótipos para cada marcador genético. As colunas são delimitadas por espaço ou tabulações, e o arquivo não possui uma linha de cabeçalho identificando as colunas.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n100 100002140 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 \n100 100003600 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 \n100 100005750 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 \n100 100005910 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 \n100 100006430 0 0 1 -9 1 1 1 2 1 2 2 2 1 2 2 2 2 1 \n100 100007080 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 2 2 2 2 \n100 100007490 0 0 1 -9 2 1 2 2 1 1 1 1 2 2 1 2 2 1 \n100 100007510 0 0 1 -9 1 1 2 2 1 2 2 2 2 2 2 2 2 2 \n100 100017170 0 0 1 -9 1 1 2 2 1 1 1 1 2 2 1 1 1 1 \n100 100017450 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 \n```\n:::\n\n\n\n\n\n#### \n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

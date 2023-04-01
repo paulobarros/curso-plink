@@ -2,4 +2,145 @@
 title: "Formatos de Dados"
 lang: pt-BR
 cap-location: margin
+csl: ../plos-biology.csl
+bibliography: ../referencias.bib
 ---
+
+Os arquivos de entrada para as análises no PLINK nada mais são que arquivos de texto em formatos específicos reconhecidos pelo programa[@plinkdatadoc]. O PLINK possui seus formatos de entrada padrão, que são os arquivos de genótipo (**PED**) e os arquivos de mapa (**MAP**). É possível também recodificar estes arquivos em um formato binário (**BED**), de menor tamanho e leitura mais eficiente pelo PLINK. Estes são os formatos de arquivo que vamos explorar durante o curso. Entretanto, o PLINK também aceita outros formatos conhecidos como o VCF e Oxford. Para conhecer sobre todos os formatos aceitos pelo PLINK recomendo que consultem a vasta documentação do programa:
+
+::: {.callout-note appearance="minimal"}
+##### {{< fa book >}} [Documentação do PLINK](https://www.cog-genomics.org/plink/1.9)
+
+A documentação de qualquer software ou pacote é sempre sua maior aliada! **LEIAM A DOCUMENTAÇÃO!** Elas existem por um motivo!
+:::
+
+### PED files
+
+Arquivos `.PED` são o formato original de entrada com informações sobre **amostras**, **pedigree** e **genótipos**. Geralmente são acompanhados de um arquivo `.MAP`, mas não obrigatoriamente. Cada linha do arquivo representa um indivíduo e as colunas representam informações como o ID do indivíduo,pedigree, o sexo, o fenótipo e os genótipos para cada marcador genético. As colunas são delimitadas por espaço ou tabulações, e o arquivo não possui uma linha de cabeçalho identificando as colunas.
+
+```         
+100 100002140 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100003600 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 2 2 1 1 1 1 1 1 2 2 
+100 100005750 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100005910 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100006430 0 0 1 -9 1 1 1 2 1 2 2 2 1 2 2 2 2 1 2 2 1 2 1 1 1 1 2 2 
+100 100007080 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 2 2 
+100 100007490 0 0 1 -9 2 1 2 2 1 1 1 1 2 2 1 2 2 1 2 2 1 1 1 1 1 1 2 2 
+100 100007510 0 0 1 -9 1 1 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 2 2 
+100 100017170 0 0 1 -9 1 1 2 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 1 1 1 1 2 2 
+100 100017450 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2
+```
+
+::: column-margin
+Exemplo de um arquivo .PED do PLINK. As **seis primeiras colunas** são informativas das amostras. A partir da sétima coluna começam os genótipos, um indivíduo por linha. Veremos as diferentes formas de configurar e ler um arquivo PED.
+:::
+
+### Colunas iniciais
+
+As seis primeiras colunas de um arquivo PED dizem respeito a informações importantes sobre a amostra.
+
+```         
+1. ID da Família
+2. ID do Indivíduo/Amostra
+3. ID do pai
+4. ID da mãe
+5. Sexo
+6. Fenótipo
+```
+
+Nem todo artigo PED estará completo, entretanto, existem *flags* (opções de comando) no PLINK permitem a [leitura de arquivos PED incompletos](https://www.cog-genomics.org/plink/1.9/input#plink_irreg) com alguns destes campos ausentes do arquivo. Com esta alteração, somente o **ID do Indivíduo/Amostra é um campo obrigatório** no arquivo PED.
+
+
+| Campo               | Formato |
+| --- | --- |
+| 1.  ID da Família   | Texto alfanumérico não iniciado por ```#``` |
+| 2.  ID do Indivíduo<sup><b>a</b></sup> | Texto alfanumérico não iniciado por ```#```|
+| 3.  ID do Pai       | Texto alfanumérico não iniciado por ```#```. Se ausente valor deve ser ```0``` |
+| 4.  ID da Mãe       | Texto alfanumérico não iniciado por ```#```. Se ausente valor deve ser ```0``` |
+| 5.  Sexo            | ```1``` = Macho, ```2```= Fêmea, ```0``` = Desconhecido |
+| 6.  Fenótipo        | Quantitativo (contínuo) ou no formato de caso/controle (```1``` = controle,```2```=caso), caso ausente ```-9``` |
+
+::: column-margin
+<sup><b>a</b></sup> O ID do Indivíduo é o único campo obrigatório em um PED file, uma vez que as flags permitem a leitura de um arquivo inconpleto. No caso de utilizadão do campo de ID de Família é importante notar que a combinação das duas primeiras colunas sejam únicas, sem repetições entre as amostras.
+Para mais informações [consulte o manual do PLINK](https://www.cog-genomics.org/plink/1.9/formats#fam)
+:::
+
+
+### Genótipos
+
+Os genótipos são informados a partir da sétima coluna (em caso de um .PED completo). Devem ser também delimitados por espaço ou tabulações. Os genótipos podem ser representados por qualquer caracter (números ou letras), exceto pelo `0` que é designado como o caracter de _missing_.
+
+::: {.callout-caution}
+## Muita Atenção!
+
+**Todos os marcadores deverão ser bialélicos**. Todos os SNPs (haploides ou não) deverão ter dois alelos especificados. 
+
+:::
+
+```
+FAM001  1  0 0  1  2  A A  G G  A C 
+FAM001  2  0 0  1  2  A A  A G  0 0
+....
+```
+::: column-margin
+No primeiro exemplo os genótipos estão sendo informados como as próprias bases nucleotídicas (A,T,G,C). Como o PLINK assume os marcadores como bialélicos, cada par de letras representa os dois alelos de um SNP. O primeiro par `A A` são os dois alelos do SNP1, o par `G G` os dois alelos do SNP2.. e assim por diante. No segundo exemplo os alelos são representados pelos números `1` e `2`. Indivíduos `1 1` seriam homozigotos para o primeiro alelo, `1 2` ou `2 1` heterozigotos, e `2 2` homozigotos pro segundo alelo.
+:::
+
+```
+100 100002140 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100003600 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 2 2 1 1 1 1 1 1 2 2 
+100 100005750 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 1 2 1 1 1 1 2 2 
+100 100005910 0 0 1 -9 1 1 2 2 2 2 2 2 2 2 1 1 2 2 2 2 1 2 1 1 1 1 2 2
+.....
+```
+
+Para cromossomos Haploides (cromossomos X e Y em machos, DNA mitocondrial) os genótipos devem ser especificados como homozigotos. O caracter padrão para _missing_ `0` pode ser alterado com _flags_ no PLINK. Ainda existe a opção de fornecer genótipos compactos (_compound genotypes_), nos quais os alelos são separados por barras transversais `A/C` ou concatenados `AC`. A leitura destes genótipos também é controlada por flags [@gondro2013genome]. 
+
+### MAP files
+
+Os arquivos `.MAP` contém as informações a respeito dos marcadores genotipados.
+
+```
+0	rs42206466	0	148304112
+1	rs41609588	0	135098
+1	rs108982244	0	267940
+1	rs43703977	0	393248
+1	rs110887329	0	471078
+1	rs29015852	0	516404
+1	rs110936909	0	571340
+1	rs108981857	0	845494
+1	rs110467572	0	883895
+1	rs109719982	0	905632
+```
+
+Por padrão cada linha de um arquivo `.MAP` descreve um único marcador e deve conter 3 ou 4 quatro colunas:
+
+```
+1. Cromossomo
+2. rs# ou identificador do snp
+3. Distância genética (morgans)
+4. Posição em pares de base(bp units)
+```
+
+
+
+
+A distância genética não é obrigatória e pode ser ignorada quando se seta todos os marcadores nesta coluna para `0` ou até mesmo não estar presente no arquivo `.MAP` e ser ignorada através da _flag_ apropriada. A distância genética é mais crucial em conjuntos de análises que buscam por segmentos compartilhados no genoma entre indivíduos [@plinkdatadoc]. 
+
+Uma vez que foi desenvolvido inicialmente para análises do genoma humano, o PLINK considera como padrão o conjunto autossômico humano.
+
+```
+Autosomes                            -> 1-22
+X    X chromosome                    -> 23
+Y    Y chromosome                    -> 24
+XY   Pseudo-autosomal region of X    -> 25
+MT   Mitochondrial                   -> 26
+```
+
+Já existem _flags_ específicas para conjuntos cromossômicos de outros grupos (bovinos, equinos,ovinos, entre outros). Para grupos não padrão, o número permitido de cromossomos a considerar é informado na leitura dos arquivos com as _flags_ necessárias.
+
+Os marcadores no genótipo não precisam estar em ordem genômica, contudo, o arquivo `.MAP` deve conter o mesmo número de marcadores que os presentes nos genótipos do arquivo `.PED` e a ordem destes dois arquivos deve sim ser a mesma para os marcadores. Por exemplo, o primeiro SNP no arquivo de genótipos que está nas colunas `7` e `8` respectivamente, deve corresponder ao marcador na linha `1` do arquivo de mapa, e assim sucessivamente. 
+
+::: {#refs}
+**Referências**
+:::
