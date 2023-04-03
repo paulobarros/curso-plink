@@ -50,6 +50,8 @@ website:
         contents:
           - href: plink/datafiles.qmd
             text: Arquivos de Entrada
+          - href: plink/runplink.qmd
+            text: Rodando o PLINK
           - href: plink/qc.qmd
             text: Controle de Qualidade
           - href: plink/diversity.qmd
@@ -69,6 +71,8 @@ format:
     code-line-numbers: true
     highlight-style: dracula
     toc: true
+    
 
 execute:
   freeze: auto
+  engine: knitr

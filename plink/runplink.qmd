@@ -1,0 +1,72 @@
+---
+title: "Rodando o PLINK"
+lang: pt-BR
+cap-location: margin
+csl: ../plos-biology.csl
+bibliography: ../referencias.bib
+---
+
+
+::: {.callout-important}
+
+Meu sistema operacional é o Pop_OS!, uma distro Linux. Mesmo possuindo uma interface gráfica, muitos dos comandos e prints de tela que vocês verão nos exemplos serão executados em terminal já que em muitas das vezes a depender do volume de dados, as análises são realizadas em servidores com um maior poder computacional. Estes computadores muito provavelmente estarão rodando alguma versão de servidor do Linux sem uma interface gráfica, então é mais útil que vocês já se familiarizem com os comandos de terminal.
+
+O formato que vocês verão nos comandos será sempre o mesmo:
+
+```
+paulo@pop-os |> ~/Documents/GENOMICS/plink_linux_x86_64_20230116 |> tree
+
+```
+
+**paulo@pop-os** : meu nome de usuario e nome da minha máquina
+
+**~/Documents/GENOMICS/plink_linux_x86_64_20230116** : o caminho do diretório no qual estou trabalhando
+
+**tree** : o comando que está sendo executado
+
+E logo abaixo a resposta daquele comando.
+
+:::
+
+
+
+Quando fazemos o download do PLINK 1.9 observamos os seguintes arquivos:
+
+```
+paulo@pop-os |> ~/Documents/GENOMICS/plink_linux_x86_64_20230116 |> tree
+
+.
+├── LICENSE   -> arquivo de licença do PLINK
+├── plink     -> executável do PLINK
+├── prettify  -> utilitário para gerar tabelas formatadas
+├── toy.map   -> arquivo .MAP de exemplo
+└── toy.ped   -> arquivo .PED de exemplo
+```
+
+Podemos usar o terminal para ver a cara do aquivo de genótipo e de mapa usando o comando `cat` para imprimir o arquivo na tela do terminal.
+
+```
+paulo@pop-os |> ~/Documents/GENOMICS/plink_linux_x86_64_20230116 |> cat toy.ped 
+1 1000000000 0 0 1 1 0 0 A A
+1 1000000001 0 0 1 2 C C A G
+
+``` 
+
+Como podemos ver o arquivo de exemplo possui as [seis colunas iniciais](datafiles.qmd#colunas-iniciais) de um arquivo `.ped`, seguidas dos genótipos de dois marcadores codificados como bases nucleotídicas. Já no arquivo `.map` vamos observar [quatro colunas](datafiles.qmd#map-files) e duas linhas, referentes aos dois marcadores no nosso arquivo de genótipo.
+
+```
+paulo@pop-os |> ~/Documents/GENOMICS/plink_linux_x86_64_20230116 |> cat toy.map
+1	rs0     0   1000
+1	rs10    0   1001
+```
+
+
+
+
+
+
+
+
+::: {#refs}
+**Referências**
+:::
