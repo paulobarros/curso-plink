@@ -4,7 +4,6 @@ lang: pt-BR
 cap-location: margin
 csl: ../plos-biology.csl
 bibliography: ../referencias.bib
-#engine: knitr
 ---
 
 Os arquivos de entrada para as análises no PLINK nada mais são que arquivos de texto em formatos específicos reconhecidos pelo programa[@plinkdatadoc]. O PLINK possui seus formatos de entrada padrão, que são os arquivos de genótipo (**PED**) e os arquivos de mapa (**MAP**). É possível também recodificar estes arquivos em um formato binário (**BED**), de menor tamanho e leitura mais eficiente pelo PLINK. Estes são os formatos de arquivo que vamos explorar durante o curso. Entretanto, o PLINK também aceita outros formatos conhecidos como o VCF e Oxford. Para conhecer sobre todos os formatos aceitos pelo PLINK recomendo que consultem a vasta documentação do programa:
@@ -127,11 +126,6 @@ MT   Mitochondrial                   -> 26
 Já existem _flags_ específicas para conjuntos cromossômicos de outros grupos (bovinos, equinos, ovinos, entre outros). Para grupos não padrão, o número permitido de cromossomos a considerar é informado na leitura dos arquivos com as _flags_ necessárias.
 
 Os marcadores no genótipo não precisam estar em ordem genômica, contudo, o arquivo `.MAP` deve conter o mesmo número de marcadores que os presentes nos genótipos do arquivo `.PED` e a ordem destes dois arquivos deve sim ser a mesma para os marcadores. Por exemplo, o primeiro SNP no arquivo de genótipos que está nas colunas `7` e `8` respectivamente, deve corresponder ao marcador na linha `1` do arquivo de mapa, e assim sucessivamente. 
-
-```{bash}
-#| eval: false
-echo "just testing"
-```
 
 
 ::: {#refs}
