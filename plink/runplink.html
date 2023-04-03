@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -61,6 +124,8 @@ div.csl-indent {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,7 +149,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -194,10 +259,18 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#invocando-o-executável" id="toc-invocando-o-executável" class="nav-link active" data-scroll-target="#invocando-o-executável">Invocando o executável</a></li>
+  <li><a href="#rodando-arquivos-exemplo" id="toc-rodando-arquivos-exemplo" class="nav-link" data-scroll-target="#rodando-arquivos-exemplo">Rodando arquivos exemplo</a></li>
+  <li><a href="#arquivos-de-saída" id="toc-arquivos-de-saída" class="nav-link" data-scroll-target="#arquivos-de-saída">Arquivos de Saída</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/paulobarros/curso-plink/issues/new" class="toc-action">Criar uma issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -228,16 +301,16 @@ Importante
 <div class="callout-body-container callout-body">
 <p>Meu sistema operacional é o Pop_OS!, uma distro Linux. Mesmo possuindo uma interface gráfica, muitos dos comandos e prints de tela que vocês verão nos exemplos serão executados em terminal já que em muitas das vezes a depender do volume de dados, as análises são realizadas em servidores com um maior poder computacional. Estes computadores muito provavelmente estarão rodando alguma versão de servidor do Linux sem uma interface gráfica, então é mais útil que vocês já se familiarizem com os comandos de terminal.</p>
 <p>O formato que vocês verão nos comandos será sempre o mesmo:</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink_linux_x86_64_20230116 |&gt; tree
+<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; tree
 </code></pre>
 <p><strong>paulo@pop-os</strong> : meu nome de usuario e nome da minha máquina</p>
-<p><strong>~/Documents/GENOMICS/plink_linux_x86_64_20230116</strong> : o caminho do diretório no qual estou trabalhando</p>
+<p><strong>~/Documents/GENOMICS/plink</strong> : o caminho do diretório no qual estou trabalhando</p>
 <p><strong>tree</strong> : o comando que está sendo executado</p>
 <p>E logo abaixo a resposta daquele comando.</p>
 </div>
 </div>
 <p>Quando fazemos o download do PLINK 1.9 observamos os seguintes arquivos:</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink_linux_x86_64_20230116 |&gt; tree
+<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; tree
 
 .
 ├── LICENSE   -&gt; arquivo de licença do PLINK
@@ -246,19 +319,130 @@ Importante
 ├── toy.map   -&gt; arquivo .MAP de exemplo
 └── toy.ped   -&gt; arquivo .PED de exemplo</code></pre>
 <p>Podemos usar o terminal para ver a cara do aquivo de genótipo e de mapa usando o comando <code>cat</code> para imprimir o arquivo na tela do terminal.</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink_linux_x86_64_20230116 |&gt; cat toy.ped 
+<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; cat toy.ped 
 1 1000000000 0 0 1 1 0 0 A A
 1 1000000001 0 0 1 2 C C A G
 </code></pre>
 <p>Como podemos ver o arquivo de exemplo possui as <a href="../plink/datafiles.html#colunas-iniciais">seis colunas iniciais</a> de um arquivo <code>.ped</code>, seguidas dos genótipos de dois marcadores codificados como bases nucleotídicas. Já no arquivo <code>.map</code> vamos observar <a href="../plink/datafiles.html#map-files">quatro colunas</a> e duas linhas, referentes aos dois marcadores no nosso arquivo de genótipo.</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink_linux_x86_64_20230116 |&gt; cat toy.map
+<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; cat toy.map
 1   rs0     0   1000
 1   rs10    0   1001</code></pre>
+<section id="invocando-o-executável" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="invocando-o-executável">Invocando o executável</h3>
+<p>O arquivo <code>plink</code> é um arquivo binário que não requer instalação, basta a sua invocação seguido das opções de comando para que ele execute alguma função.</p>
+<div id="fig-exe" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../images/plink_exe.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption margin-caption">Figura&nbsp;1: Executável do PLINK</figcaption><p></p>
+</figure>
+</div>
+<p>Observe na <a href="#fig-exe">Figura&nbsp;1</a> que as cores são diferentes para os dois arquivos binários <code>plink</code> e <code>prettify</code> quando comparados aos arquivos <code>.map</code> e <code>.ped</code>. Isso porque que os arquivos possuem <strong>permissão de execução</strong>. O comando <code>ls</code> no linux lista os arquivos em um diretório. Caso no seu diretório estes arquivos não apareçam marcados com cores diferentes, você pode utilizar o comando <code>ls -la</code> para listar as atuais permissões dos arquivos.</p>
+<div id="fig-ls" class="quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../images/plink_exe_2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption margin-caption">Figura&nbsp;2: Listando permissões de arquivos</figcaption><p></p>
+</figure>
+</div>
+<p>Observe que tanto o <code>plink</code> quanto <code>prettify</code> estão setados com as permissões <code>-rwxrwxr-x paulo</code>. Em resumo, as letras <code>r</code>, <code>w</code> e <code>x</code> referem-se respectivamente aos modos de <strong>leitura</strong> (<em>read</em>), <strong>escrita</strong> (<em>write</em>) e <strong>execução</strong> (<em>execution</em>). Caso necessite fornecer permissão de execução para o binário do <code>plink</code>pode fazer com o comando abaixo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sudo</span> chmod +x plink prettify</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>E como não custa nada lembrar <i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> <i class="fa-brands fa-linux" aria-label="linux"></i> <a href="https://paulobarros.github.io/introducao-ao-linux/">Material Introdução ao Linux</a></p>
+</section>
+<section id="rodando-arquivos-exemplo" class="level3">
+<h3 class="anchored" data-anchor-id="rodando-arquivos-exemplo">Rodando arquivos exemplo</h3>
+<p>Tudo certo com nossas permissões, podemos então executar o PLINK pela primeira vez. Para isso basta chamar invocar o executável no terminal. Em Linux, quando desejamos rodar algum executável, seja um binário ou arquivo de script, basta utilizar <code>./</code> antes do nome do comando para invocar a sua execução. No nosso caso utilizaremos <code>./plink</code> no terminal para sua execução.</p>
+<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; ./plink 
+PLINK v1.90b7 64-bit (16 Jan 2023)             www.cog-genomics.org/plink/1.9/
+(C) 2005-2023 Shaun Purcell, Christopher Chang   GNU General Public License v3
+
+  plink &lt;input flag(s)...&gt; [command flag(s)...] [other flag(s)...]
+  plink --help [flag name(s)...]
+
+Commands include --make-bed, --recode, --flip-scan, --merge-list,
+--write-snplist, --list-duplicate-vars, --freqx, --missing, --test-mishap,
+--hardy, --mendel, --ibc, --impute-sex, --indep-pairphase, --r2, --show-tags,
+--blocks, --distance, --genome, --homozyg, --make-rel, --make-grm-gz,
+--rel-cutoff, --cluster, --pca, --neighbour, --ibs-test, --regress-distance,
+--model, --bd, --gxe, --logistic, --dosage, --lasso, --test-missing,
+--make-perm-pheno, --tdt, --qfam, --annotate, --clump, --gene-report,
+--meta-analysis, --epistasis, --fast-epistasis, and --score.
+
+"plink --help | more" describes all functions (warning: long).
+</code></pre>
+<p>Ao invocar o PLINK sem nenhuma das suas <em>flags</em>, ele simnplesmente exibe na tela uma rápida ajuda do programa, mostrando algumas das <em>flags</em> aceitas e também como invocar a ajuda do programa. Podemos então fazer a leitura dos arquivos de exemplo <code>toy.ped</code> e <code>toy.map</code>.</p>
+<pre><code>✘ paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; ./plink --file toy --freq --out toy_analysis
+PLINK v1.90b7 64-bit (16 Jan 2023)             www.cog-genomics.org/plink/1.9/
+(C) 2005-2023 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to toy_analysis.log.
+Options in effect:
+  --file toy
+  --freq
+  --out toy_analysis
+
+15880 MB RAM detected; reserving 7940 MB for main workspace.
+.ped scan complete (for binary autoconversion).
+Performing single-pass .bed write (2 variants, 2 people).
+--file: toy_analysis-temporary.bed + toy_analysis-temporary.bim +
+toy_analysis-temporary.fam written.
+2 variants loaded from .bim file.
+2 people (2 males, 0 females) loaded from .fam.
+2 phenotype values loaded from .fam.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 2 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.75.
+--freq: Allele frequencies (founders only) written to toy_analysis.frq .
+</code></pre>
+<p>Algumas informações importantes nesta nova saída. O PLINK agora informa quais opções foram invocadas:</p>
+<pre><code>Options in effect:
+  --file toy
+  --freq
+  --out toy_analysis
+</code></pre>
+<p>As opções utilizadas foram <code>--file</code> , <code>--freq</code> e <code>--out</code>. Tudo o que é seguido de um comando, chamamos de parâmetro. Por exemplo, o comando <code>--file</code> é seguido do parâmetro <code>toy</code>, assim como o comando <code>--out</code> é seguido do parâmetro <code>toy_analysis</code>. Nem todo comando obrigatoriamente necessita de um parâmetro subsequente, como é o caso do comando <code>--freq</code>. Vamos tentar entender agora o que cada comando significa neste exemplo.</p>
+<ul>
+<li><p><code>--file toy</code> : este comando diz ao PLINK para utilizar os arquivos de entrada na pasta. No nosso caso possuímos dois arquivos <code>toy.ped</code> e <code>toy.map</code>, como o nome do arquivo é idêntico alterando somente a sua extenção, o comando automaticamente busca estes arquivos na pasta e faz a sua leitura.</p></li>
+<li><p><code>--freq</code> : este comando informa ao PLINK para gerar um relatório de frequências alélicas. A <a href="https://www.cog-genomics.org/plink/1.9/data"><i class="fa-solid fa-book fa-lg" aria-label="book"></i> documentação do plink</a> oferece a descrição de todas as funções disponíveis, e também as configurações dos arquivos de saída para cada função.</p></li>
+<li><p><code>--out</code> : por padrão, todos os arquivos de resultado do PLINK são nomeados <code>plink.alguma_extensao</code>, o paramertro <code>toy_analysis</code> diz ao plink para alterar este padrão, dessa maneira o resultado será nomeado <code>toy_analysis.alguma_extensao</code>, por exemplo, no caso da análise que acabamos de executar, será criado o arquivo <code>toy_analysis.frq</code>, já que <code>.frq</code> é a extensão padrão da saída do comando <code>--freq</code>.</p></li>
+</ul>
+<p>Existem modificadores que podem ser utilizados em conjunto com os comandos, para saber a maneira correta de utilização basta recorrer a documentação.</p>
+</section>
+<section id="arquivos-de-saída" class="level3">
+<h3 class="anchored" data-anchor-id="arquivos-de-saída">Arquivos de Saída</h3>
+<p>Se tudo correu bem, devemos ter na nossa pasta novos arquivos gerados pelo PLINK</p>
+<pre><code> paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; tree
+.
+├── LICENSE
+├── plink
+├── prettify
+├── toy_analysis.frq
+├── toy_analysis.log
+├── toy.map
+└── toy.ped
+</code></pre>
+<p>Agora aparecem no nosso diretório os arquivos <code>toy_analysis.frq</code>, que é o arquivo de saída do comando <code>--freq</code> e o arquivo <code>toy_analysis.log</code>. Vamos dar uma olhada mais de perto no arquivo da nossa análise das frequências alélicas.</p>
+<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; cat toy_analysis.frq
+ CHR  SNP   A1   A2          MAF  NCHROBS
+   1  rs0    0    C            0        2
+   1 rs10    G    A         0.25        4</code></pre>
+<p>O nosso arquivo de resultado nos mostra:</p>
+<ul>
+<li><p><code>CHR</code>: o identificador do cromossomo</p></li>
+<li><p><code>SNP</code>: o identificador do SNP</p></li>
+<li><p><code>A1</code>: o alelo menor</p></li>
+<li><p><code>A2</code>: o alelo maior</p></li>
+<li><p><code>MAF</code>: a frequência do alelo menor (<em>minor allele frequency</em>)</p></li>
+<li><p><code>NCHROBS</code>: o numero de alelos observados por SNP</p></li>
+</ul>
+<p>Na documentação é possível encontrar outras formas de pedir o cálculo das frequências alélicas.</p>
+<p>Você pode abrir o arquivo <code>toy_analysis.log</code> no seu editor de texto e verá que ele é um registro de todas as mensagens que o PLINK exibiu no terminal durante a execuçào. Esse arquivo é muito importante na hora de identificar erros na leitura de arquivos, ou na execução de comandos, esteja sempre atento as mensagens!</p>
 <div id="refs" role="doc-bibliography">
 <p><strong>Referências</strong></p>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
