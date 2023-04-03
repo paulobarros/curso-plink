@@ -48,7 +48,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../plink/qc.html" rel="next">
+<link href="../plink/runplink.html" rel="next">
 <link href="../plink/index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -171,6 +171,11 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../plink/runplink.html" class="sidebar-item-text sidebar-link">Rodando o PLINK</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../plink/qc.html" class="sidebar-item-text sidebar-link">Controle de Qualidade</a>
   </div>
 </li>
@@ -255,14 +260,7 @@ div.csl-indent {
 </div></div></section>
 <section id="colunas-iniciais" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="colunas-iniciais">Colunas iniciais</h3>
-<p>As seis primeiras colunas de um arquivo PED dizem respeito a informações importantes sobre a amostra.</p>
-<pre><code>1. ID da Família
-2. ID do Indivíduo/Amostra
-3. ID do pai
-4. ID da mãe
-5. Sexo
-6. Fenótipo</code></pre>
-<p>Nem todo artigo PED estará completo, entretanto, existem <em>flags</em> (opções de comando) no PLINK permitem a <a href="https://www.cog-genomics.org/plink/1.9/input#plink_irreg">leitura de arquivos PED incompletos</a> com alguns destes campos ausentes do arquivo. Com esta alteração, somente o <strong>ID do Indivíduo/Amostra é um campo obrigatório</strong> no arquivo PED.</p>
+<p>As seis primeiras colunas de um arquivo PED dizem respeito a informações importantes sobre a amostra. Nem todo artigo PED estará completo, entretanto, existem <em>flags</em> (opções de comando) no PLINK permitem a <a href="https://www.cog-genomics.org/plink/1.9/input#plink_irreg">leitura de arquivos PED incompletos</a> com alguns destes campos ausentes do arquivo. Com esta alteração, somente o <strong>ID do Indivíduo/Amostra é um campo obrigatório</strong> no arquivo PED.</p>
 <table class="table">
 <colgroup>
 <col style="width: 50%">
@@ -348,10 +346,12 @@ FAM001  2  0 0  1  2  A A  A G  0 0
 1   rs110467572 0   883895
 1   rs109719982 0   905632</code></pre>
 <p>Por padrão cada linha de um arquivo <code>.MAP</code> descreve um único marcador e deve conter 3 ou 4 quatro colunas:</p>
-<pre><code>1. Cromossomo
-2. rs# ou identificador do snp
-3. Distância genética (morgans)
-4. Posição em pares de base(bp units)</code></pre>
+<ol type="1">
+<li>Cromossomo</li>
+<li>rs# ou identificador do snp</li>
+<li>Distância genética (morgans)</li>
+<li>Posição em pares de base (bp units)</li>
+</ol>
 <p>A distância genética não é obrigatória e pode ser ignorada quando se seta todos os marcadores nesta coluna para <code>0</code> ou até mesmo não estar presente no arquivo <code>.MAP</code> e ser ignorada através da <em>flag</em> apropriada. A distância genética é mais crucial em conjuntos de análises que buscam por segmentos compartilhados no genoma entre indivíduos <span class="citation" data-cites="plinkdatadoc">[<a href="#ref-plinkdatadoc" role="doc-biblioref">1</a>]</span>.</p>
 <p>Uma vez que foi desenvolvido inicialmente para análises do genoma humano, o PLINK considera como padrão o conjunto autossômico humano.</p>
 <pre><code>Autosomes                            -&gt; 1-22
@@ -359,7 +359,7 @@ X    X chromosome                    -&gt; 23
 Y    Y chromosome                    -&gt; 24
 XY   Pseudo-autosomal region of X    -&gt; 25
 MT   Mitochondrial                   -&gt; 26</code></pre>
-<p>Já existem <em>flags</em> específicas para conjuntos cromossômicos de outros grupos (bovinos, equinos,ovinos, entre outros). Para grupos não padrão, o número permitido de cromossomos a considerar é informado na leitura dos arquivos com as <em>flags</em> necessárias.</p>
+<p>Já existem <em>flags</em> específicas para conjuntos cromossômicos de outros grupos (bovinos, equinos, ovinos, entre outros). Para grupos não padrão, o número permitido de cromossomos a considerar é informado na leitura dos arquivos com as <em>flags</em> necessárias.</p>
 <p>Os marcadores no genótipo não precisam estar em ordem genômica, contudo, o arquivo <code>.MAP</code> deve conter o mesmo número de marcadores que os presentes nos genótipos do arquivo <code>.PED</code> e a ordem destes dois arquivos deve sim ser a mesma para os marcadores. Por exemplo, o primeiro SNP no arquivo de genótipos que está nas colunas <code>7</code> e <code>8</code> respectivamente, deve corresponder ao marcador na linha <code>1</code> do arquivo de mapa, e assim sucessivamente.</p>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <p><strong>Referências</strong></p>
@@ -630,8 +630,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../plink/qc.html" class="pagination-link">
-        <span class="nav-page-text">Controle de Qualidade</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../plink/runplink.html" class="pagination-link">
+        <span class="nav-page-text">Rodando o PLINK</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
