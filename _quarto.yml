@@ -58,6 +58,8 @@ website:
             text: Estatísticas Básicas
           - href: plink/pca.qmd
             text: PCA
+          - href: plink/datasets.qmd
+            text: Datasets
 
 format:
   html:

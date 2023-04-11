@@ -12,20 +12,21 @@ engine: knitr
 
 Meu sistema operacional é o Pop_OS!, uma distro Linux. Mesmo possuindo uma interface gráfica, muitos dos comandos e prints de tela que vocês verão nos exemplos serão executados em terminal já que em muitas das vezes a depender do volume de dados, as análises são realizadas em servidores com um maior poder computacional. Estes computadores muito provavelmente estarão rodando alguma versão de servidor do Linux sem uma interface gráfica, então é mais útil que vocês já se familiarizem com os comandos de terminal.
 
-O formato que vocês verão nos comandos será sempre o mesmo:
+Vou adotar sempre o mesmo esquema, o bloco de código com o comando utilizado, seguido pela saída do comando no terminal. Por exemplo:
 
+```{bash}
+#| eval: false
+tree
 ```
-paulo@pop-os |> ~/Documents/GENOMICS/plink |> tree
-
-```
-
-**paulo@pop-os** : meu nome de usuario e nome da minha máquina
-
-**~/Documents/GENOMICS/plink** : o caminho do diretório no qual estou trabalhando
-
-**tree** : o comando que está sendo executado
 
 E logo abaixo a resposta daquele comando.
+
+```
+.
+├── folder1
+└── folder2
+
+```
 
 :::
 
@@ -33,9 +34,12 @@ E logo abaixo a resposta daquele comando.
 
 Quando fazemos o download do PLINK 1.9 observamos os seguintes arquivos:
 
+```{bash}
+#| eval: false
+tree
 ```
-paulo@pop-os |> ~/Documents/GENOMICS/plink |> tree
 
+```
 .
 ├── LICENSE   -> arquivo de licença do PLINK
 ├── plink     -> executável do PLINK
@@ -46,8 +50,12 @@ paulo@pop-os |> ~/Documents/GENOMICS/plink |> tree
 
 Podemos usar o terminal para ver a cara do aquivo de genótipo e de mapa usando o comando `cat` para imprimir o arquivo na tela do terminal.
 
+```{bash}
+#| eval: false
+cat toy.ped 
 ```
-paulo@pop-os |> ~/Documents/GENOMICS/plink |> cat toy.ped 
+
+```
 1 1000000000 0 0 1 1 0 0 A A
 1 1000000001 0 0 1 2 C C A G
 
@@ -55,8 +63,12 @@ paulo@pop-os |> ~/Documents/GENOMICS/plink |> cat toy.ped
 
 Como podemos ver o arquivo de exemplo possui as [seis colunas iniciais](datafiles.qmd#colunas-iniciais) de um arquivo `.ped`, seguidas dos genótipos de dois marcadores codificados como bases nucleotídicas. Já no arquivo `.map` vamos observar [quatro colunas](datafiles.qmd#map-files) e duas linhas, referentes aos dois marcadores no nosso arquivo de genótipo.
 
+```{bash}
+#| eval: false
+cat toy.map
 ```
-paulo@pop-os |> ~/Documents/GENOMICS/plink |> cat toy.map
+
+```
 1	rs0     0   1000
 1	rs10    0   1001
 ```
@@ -83,9 +95,10 @@ Listando permissões de arquivos
 
 :::
 
+
 Observe que tanto o `plink` quanto `prettify` estão setados com as permissões `-rwxrwxr-x paulo`. Em resumo, as letras `r`, `w` e `x` referem-se respectivamente aos modos de **leitura** (_read_), **escrita** (_write_) e **execução** (_execution_). Caso necessite fornecer permissão de execução para o binário do `plink`pode fazer com o comando abaixo:
 
-```{bash}
+```{#lst-chmod .bash lst-cap="Execução de Permissão"}
 #| eval: false
 sudo chmod +x plink prettify
 ```
@@ -97,8 +110,12 @@ E como não custa nada lembrar {{< fa hand-point-right >}} {{< fa brands linux >
 
 Tudo certo com nossas permissões, podemos então executar o PLINK pela primeira vez. Para isso basta chamar invocar o executável no terminal. Em Linux, quando desejamos rodar algum executável, seja um binário ou arquivo de script, basta utilizar `./` antes do nome do comando para invocar a sua execução. No nosso caso utilizaremos `./plink` no terminal para sua execução.
 
+```{bash}
+#| eval: false
+./plink 
 ```
-paulo@pop-os |> ~/Documents/GENOMICS/plink |> ./plink 
+
+```
 PLINK v1.90b7 64-bit (16 Jan 2023)             www.cog-genomics.org/plink/1.9/
 (C) 2005-2023 Shaun Purcell, Christopher Chang   GNU General Public License v3
 
@@ -119,9 +136,12 @@ Commands include --make-bed, --recode, --flip-scan, --merge-list,
 ```
 Ao invocar o PLINK sem nenhuma das suas _flags_, ele simnplesmente exibe na tela uma rápida ajuda do programa, mostrando algumas das _flags_ aceitas e também como invocar a ajuda do programa. Podemos então fazer a leitura dos arquivos de exemplo `toy.ped` e `toy.map`.
 
+```{bash}
+#| eval: false
+./plink --file toy --freq --out toy_analysis
+```
 
 ```
-✘ paulo@pop-os |> ~/Documents/GENOMICS/plink |> ./plink --file toy --freq --out toy_analysis
 PLINK v1.90b7 64-bit (16 Jan 2023)             www.cog-genomics.org/plink/1.9/
 (C) 2005-2023 Shaun Purcell, Christopher Chang   GNU General Public License v3
 Logging to toy_analysis.log.
@@ -160,7 +180,7 @@ As opções utilizadas foram `--file` , `--freq` e `--out`. Tudo o que é seguid
 
 * `--file toy` : este comando diz ao PLINK para utilizar os arquivos de entrada na pasta. No nosso caso possuímos dois arquivos `toy.ped` e `toy.map`, como o nome do arquivo é idêntico alterando somente a sua extenção, o comando automaticamente busca estes arquivos na pasta e faz a sua leitura.
 
-* `--freq`  :  este comando informa ao PLINK para gerar um relatório de frequências alélicas. A [{{< fa book size=lg >}}     documentação do plink](https://www.cog-genomics.org/plink/1.9/data) oferece a descrição de todas as funções disponíveis, e também as configurações dos arquivos de saída para cada função.
+* `--freq`  :  este comando informa ao PLINK para gerar um relatório de frequências alélicas. A [{{< fa book size=lg >}}     documentação do plink](https://www.cog-genomics.org/plink/1.9/data) [@plinkdoc] oferece a descrição de todas as funções disponíveis, e também as configurações dos arquivos de saída para cada função.
 
 * `--out` : por padrão, todos os arquivos de resultado do PLINK são nomeados `plink.alguma_extensao`, o paramertro `toy_analysis` diz ao plink para alterar este padrão, dessa maneira o resultado será nomeado `toy_analysis.alguma_extensao`, por exemplo, no caso da análise que acabamos de executar, será criado o arquivo `toy_analysis.frq`, já que `.frq` é a extensão padrão da saída do comando `--freq`.
 
@@ -170,8 +190,12 @@ Existem modificadores que podem ser utilizados em conjunto com os comandos, para
 
 Se tudo correu bem, devemos ter na nossa pasta novos arquivos gerados pelo PLINK
 
+```{bash}
+#| eval: false
+tree
 ```
- paulo@pop-os |> ~/Documents/GENOMICS/plink |> tree
+
+```
 .
 ├── LICENSE
 ├── plink
@@ -185,8 +209,12 @@ Se tudo correu bem, devemos ter na nossa pasta novos arquivos gerados pelo PLINK
 
 Agora aparecem no nosso diretório os arquivos `toy_analysis.frq`, que é o arquivo de saída do comando `--freq` e o arquivo `toy_analysis.log`. Vamos dar uma olhada mais de perto no arquivo da nossa análise das frequências alélicas.
 
+```{bash}
+#| eval: false
+cat toy_analysis.frq
 ```
-paulo@pop-os |> ~/Documents/GENOMICS/plink |> cat toy_analysis.frq
+
+```
  CHR  SNP   A1   A2          MAF  NCHROBS
    1  rs0    0    C            0        2
    1 rs10    G    A         0.25        4
@@ -210,6 +238,7 @@ O nosso arquivo de resultado nos mostra:
  
  Você pode abrir o arquivo `toy_analysis.log` no seu editor de texto e verá que ele é um registro de todas as mensagens que o PLINK exibiu no terminal durante a execuçào. Esse arquivo é muito importante na hora de identificar erros na leitura de arquivos, ou na execução de comandos, esteja sempre atento as mensagens!
 
+Tranquilo até aqui? Nas próximas seções vamos trabalhar chips SNPs disponíveis na internet e realizar análises mais aprofundadas. Em cada caso, será informado o _dataset_ que estaremos utilizando para as análises, bem como informações de download e especificações. Todos os dados utilizados aqui estão públicos disponíveis na internet. 
 
 
 ::: {#refs}

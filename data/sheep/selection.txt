@@ -1,0 +1,44 @@
+INDIVIDUAL SELECTION: 5 populations, 119 individuals, 119 samples
+--------------------
+
+Population: ADP - African Dorper
+	Chip: Illumina OvineSNP50v1
+	Samples: 21
+	Project: SheepHapMap
+	References: Kijas et al, PLoS Biology, 2012 (https://doi.org/10.1371/journal.pbio.1001258)
+	Licences: CC-BY
+
+Population: AWD - African White Dorper
+	Chip: Illumina OvineSNP50v1
+	Samples: 6
+	Project: SheepHapMap
+	References: Kijas et al, PLoS Biology, 2012 (https://doi.org/10.1371/journal.pbio.1001258)
+	Licences: CC-BY
+
+Population: BCS - Brazilian Creole
+	Chip: Illumina OvineSNP50v1
+	Samples: 23
+	Project: SheepHapMap
+	References: Kijas et al, PLoS Biology, 2012 (https://doi.org/10.1371/journal.pbio.1001258)
+	Licences: CC-BY
+
+Population: BMN - Morada Nova
+	Chip: Illumina OvineSNP50v1
+	Samples: 22
+	Project: SheepHapMap
+	References: Kijas et al, PLoS Biology, 2012 (https://doi.org/10.1371/journal.pbio.1001258)
+	Licences: CC-BY
+
+Population: BSI - SantaInes
+	Chip: Illumina OvineSNP50v1
+	Samples: 47
+	Project: SheepHapMap
+	References: Kijas et al, PLoS Biology, 2012 (https://doi.org/10.1371/journal.pbio.1001258)
+	Licences: CC-BY
+
+
+
+MARKER SELECTION: 46819
+----------------
+
+Selected chromosomes: OAR1 OAR2 OAR3 OAR4 OAR5 OAR6 OAR7 OAR8 OAR9 OAR10 OAR11 OAR12 OAR13 OAR14 OAR15 OAR16 OAR17 OAR18 OAR19 OAR20 OAR21 OAR22 OAR23 OAR24 OAR25 OAR26

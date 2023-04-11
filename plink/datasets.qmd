@@ -1,0 +1,46 @@
+---
+title: "Datasets"
+lang: pt-BR
+cap-location: margin
+csl: ../plos-biology.csl
+bibliography: ../referencias.bib
+engine: knitr
+---
+
+
+### Sheep
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(tidyverse, quietly = T)
+library(kableExtra, quietly = T)
+
+sheep <- tibble(
+  `População` = c("ADP - African Dorper",
+                  "AWD - African White Dorper",
+                  "BCS - Brazilian Creole",
+                  "BMN - Morada Nova",
+                  "BSI - SantaInes"),
+  N = c(21,6,23,22,47),
+  Chip = rep("Illumina OvineSNP50v1",5),
+  `Referência` = rep(cell_spec("Kijas et al, PLoS Biology, 2012","html",link = "https://doi.org/10.1371/journal.pbio.1001258",5)),
+  Fonte = rep(cell_spec("Widde Sheep","html",link = "http://widde.toulouse.inra.fr/widde/widde/main.do?module=sheep",5)),
+)
+
+sheep %>%
+  kable("html", escape = F) %>%
+  kable_styling(bootstrap_options = c("hover", "condensed")) %>%
+  footnote(general = "<br/><b>Número total de Marcadores:</b> 46819.<br/><b>Cromossomos Selecionados:</b> OAR1 OAR2 OAR3 OAR4 OAR5 OAR6 OAR7 OAR8 OAR9 OAR10 OAR11 OAR12 OAR13 OAR14 OAR15 OAR16 OAR17 OAR18 OAR19 OAR20 OAR21 OAR22 OAR23 OAR24 OAR25 OAR26",
+           footnote_as_chunk = T,
+           general_title = "Observações:",
+           escape = FALSE) %>%
+  row_spec(0, background = "#F2F2F2")
+
+```
+
+
+::: {#refs}
+**Referências**
+:::

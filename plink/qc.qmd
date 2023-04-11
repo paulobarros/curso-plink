@@ -2,4 +2,318 @@
 title: "Controle de Qualidade"
 lang: pt-BR
 cap-location: margin
+csl: ../plos-biology.csl
+bibliography: ../referencias.bib
+engine: knitr
 ---
+
+Para esta seção utilizaremos dados de marcadores SNP de cinco raças de Ovinos, num total de 119 indivíduos genotipados. Você pode consultar mais informações pra este dataset [aqui](datasets.qmd#sheep).
+
+:::{.callout-note}
+Ao longo dos exercícios utilizaremos diversas linguagens de script como **AWK**, **SED** e **BASH**. Infelizmente não é o objetivo deste curso ensinar essas linguagens, os scripts e exemplos serão descritos da melhor maneira possível, mas para aprofundar e conhecer melhor estas linguagens recomendo uma busca no Youtube, existem diversos canais excelentes que podem auxiliar no aprendizado destas linguagens.
+:::
+
+### Arquivos `.ped` e `.map`
+
+Vamos ver a estrutura dos nossos arquivos de entrada. Como [já discutimos](datafiles.qmd), o PLINK utiliza dois arquivos, um de genótipos e um de marcadores.
+
+```{bash}
+#| eval: false
+cut -c-100 sheep.ped | head
+```
+
+```
+ADP ADP_3 0 0 0 U G G G C G G G G G A A A G G G C A A A A C A A A G G A A C G A A G G A A C A G C A 
+ADP ADP_5 0 0 0 U G G C C G G G G G A A A A G C C G A G A C C G A G A G G C C G G G G A A C A G G G 
+ADP ADP_6 0 0 0 U G A C C G A G A G A A A G G G C A A A A A A G A G A A G C C G G G G A A C A G C A 
+ADP ADP_7 0 0 0 U G A C C G G G A G A A A A G G C A A G A C A A A G G A A C G A A G G A G C A G C G 
+ADP ADP_8 0 0 0 U G A C C G G G A A A A A A G G C G A A A C A A A G G A G G G A A G G A A C A G C A 
+ADP ADP_9 0 0 0 U G A C C G G G A G A A A A G C C G G A A C A A A G G G G C G A A G G A A C A G C A 
+ADP ADP_11 0 0 0 U G G G C G G G G G A A A G G G C A A 0 0 C A A A G G A A G G A A G G A A C C G G A
+ADP ADP_12 0 0 0 U G G C C G G G G G A A A G G G C G A G A C C A A G G A G C G G A G G A G C A G C A
+ADP ADP_13 0 0 0 U G A C C G G G A A A A A A G G C G A A A C A A A G G A G C G A A G A A A C A G C A
+ADP ADP_14 0 0 0 U G G C C G G G G G G A A G G G G G G A A C C A A G G A A C G G G G G A A C A G C G
+```
+
+O arquivo `.ped` está completo ([com as seis colunas iniciais](datafiles.qmd#colunas-iniciais)) e os [marcadores codificados como bases nucleotidicas](datafiles.qmd#genótipos). Nossa ID de família/população está na primeira coluna como `ADP`, se consultarmos nossa documentação do dataset veremos que é a abreviação para a raça `African Dorper`. Cada raça tem o seu ID único, assim como cada indivíduo dentro das populações, `ADP_3` é o ID do animal. Seguido das colunas de Pai, Mãe e Sexo, todas sem informação codificadas com `0` e a coluna de fenótipos codificada com a letra `U`.
+
+```{bash}
+#| eval: false
+cat sheep.map | head 
+```
+
+```
+1 s64199.1 0 52854
+1 OAR19_64675012.1 0 81978
+1 OAR19_64715327.1 0 120098
+1 OAR19_64803054.1 0 204694
+1 DU281551_498.1 0 315497
+1 s18939.1 0 357652
+1 OAR1_88143.1 0 401196
+1 s09912.1 0 489045
+1 s36301.1 0 580814
+1 s34880.1 0 643628
+
+```
+
+O arquivo `.map` também está no padrão que já discutimos, com a coluna do ID do cromossomo, ID do SNP, distância genética e a posição no genoma em pares de base. Utilizando o comando abaixo podemos descobrir quantos marcadores existem no total no nosso arquivo de mapa.
+
+```{bash}
+#| eval: false
+wc -l sheep.map
+```
+
+```
+46819 sheep.map
+
+```
+
+O comando `wc` significa "word count" e o argumento `-l` indica que você deseja contar o número de linhas. Vemos então que o nosso número total de marcadores é de **46819 marcadores**.
+
+Podemos também consultar o número de indivíduos em cada população do nosso arquivo de genótipo.
+
+```{bash}
+#| eval: false
+awk '{count[$1]++} END {for (word in count) print word, count[word]}' sheep.ped
+```
+
+```
+ADP 21
+AWD 6
+BMN 22
+BSI 47
+BCS 23
+
+```
+Explicando o comando:
+
+* `{count[$1]++}:` Isso irá contar as ocorrências de cada palavra na primeira coluna e armazená-las em um array chamado count. O `$1` refere-se à primeira coluna do arquivo, onde está o ID da população.
+
+* `END {for (word in count) print word, count[word]}`: Isso irá percorrer o array count e imprimir cada palavra e sua respectiva contagem.
+
+### Editando arquivos
+
+Os dados que vamos utilizar estão todos em um único arquivo. Como a nossa intenção é realizar análises tanto dentro, quanto entre populações, o ideal é que façamos a edição dos arquivos de modo que cada população possua seus arquivos `.ped` e `.map` para as análises. Faremos estas edições utilizando comandos de terminal.
+
+Temos 5 populações, assim, teremos no final 5 arquivos de genótipo. O arquivo de mapa é o mesmo para todas as populações, uma vez que foram genotipadas para o mesmo chip de marcadores. No meu exemplo, eu renomeei os arquivos `.ped` e `.map` para `toPlink_Ovis` respectivamente, para facilitar no trabalho com os dados.
+
+#### Separando as populações
+
+Para separar as populações vamos utilizar o código abaixo, basta copiar e colar no seu editor de texto e salvar com o nome de sua preferência desde que o formato seja `.sh`. No meu caso eu salvei este código num arquivo chamado `split_pop.sh`. Lembre de que para executar qualquer arquivo é necessário fornecer [permissão de execução](runplink.qmd#lst-chmod).
+
+```{bash}
+#| eval: false
+#!/usr/bin/env bash
+
+# Array com 5 elementos contendo os padrões
+populacoes=($(awk '!arr[$1]++ {print $1}' toPlink_Ovis.ped))
+
+# Loop através do array para processar cada padrão
+for populacao in "${populacoes[@]}"
+do
+    echo $populacao
+    # Cria um diretório com o nome do padrão (população)
+    mkdir -p "$populacao"
+    
+    #Executa o comando AWK para o padrão atual e salva a saída em um arquivo
+    # dentro do dirétório criado para a população
+    awk -v pop="$populacao" '$1 ~ pop {print}' \
+    toPlink_Ovis.ped > "$populacao/$populacao"_toPlink.ped
+    
+    cp toPlink_Ovis.map "$populacao/$populacao"_toPlink.map
+done
+
+```
+
+
+A primeira linha `#!/usr/bin/env bash` informa o interpretador a ser usado para executar o script, que neste caso é o Bash.
+
+A variável `populacoes` é definida como um array com 5 elementos contendo os padrões. A construção do array é feita usando o comando `awk`. Este comando busca no arquivo `toPlink_Ovis.ped` a primeira coluna que contém padrões, ou seja, linhas com valores únicos na primeira coluna. Cada padrão encontrado é armazenado em uma posição do array `populacoes`.
+
+Em seguida, o script entra em um loop for que percorre cada elemento do array `populacoes`. Para cada elemento, o script executa as seguintes ações:
+
+* Cria um diretório com o nome do padrão usando o comando `mkdir -p "$populacao"`
+
+* Executa o comando `awk` dentro do diretório criado para buscar todas as linhas do arquivo `toPlink_Ovis.ped` que correspondem ao padrão atual, usando a variável `populacao` como argumento, e redireciona a saída para um arquivo com o nome `"populacao/populacao_toPlink.ped"`
+
+* Copia o arquivo `toPlink_Ovis.map` para o diretório criado, com o nome `"populacao/populacao_toPlink.map"`
+
+Resumindo, o script separa os dados do arquivo `toPlink_Ovis.ped` em diretórios separados com base nos padrões encontrados na primeira coluna, que no caso são os nomes das nossas populações, produzindo um arquivo `populacao_toPlink.ped` e um arquivo `populacao_toPlink.map` em cada diretório correspondente.
+
+```{bash}
+#| eval: false
+tree
+```
+
+```
+.
+├── ADP
+│   ├── ADP_toPlink.map
+│   └── ADP_toPlink.ped
+├── AWD
+│   ├── AWD_toPlink.map
+│   └── AWD_toPlink.ped
+├── BCS
+│   ├── BCS_toPlink.map
+│   └── BCS_toPlink.ped
+├── BMN
+│   ├── BMN_toPlink.map
+│   └── BMN_toPlink.ped
+├── BSI
+│   ├── BSI_toPlink.map
+│   └── BSI_toPlink.ped
+├── licensed_data.txt
+├── marker_ID_info.txt
+├── plink
+├── selection.txt
+├── split_pop.sh
+├── toPlink_Ovis.map
+└── toPlink_Ovis.ped
+
+```
+
+### Criando arquivos Binários
+
+Como já discutimos, a depender do número de marcadores, pode ser mais eficiente que transformemos os nossos arquivos de genótipo e mapa em um arquivo binário. O PLINK faz isso de forma automática para nós por meio de uma _flag_ de comando. A partir de agora faremos a importação dos arquivos, a transformação para o formato binário, e todo o processo de controle de qualidade em um único comando. Primeiro vamos entender as _flags_ que utilizaremos para o QC no PLINK. Depois criaremos um novo script em Bash que fará os passos necessários para nosso controle de qualidade para cada população.
+
+```{bash}
+#| eval: false
+plink --file arquivo.ped \
+    --maf 0.05 \
+    --geno 0.05 \
+    --mind 0.10 \
+    --hwe 1e-60 midp include-nonctrl \
+    --nonfounders \
+    --sheep \
+    --allow-extra-chr \
+    --indep-pairwise 50 5 0.4 \
+    --make-bed \
+    --threads 8 \
+    --out binary
+```
+
+Agora vamos entender tudo o que está acontecendo no código acima:
+
+* `--file arquivo.ped`: Especifica o nome do arquivo PED a ser utilizado como entrada. Esse arquivo contém informações sobre as amostras genéticas e seus genótipos.
+
+* `--maf 0.05`: Remove todos os loci com frequência alélica menor do que 0,05. Isso significa que apenas loci com pelo menos 5% dos alelos terão suas informações preservadas.
+
+* `--geno 0.05`: Remove todos os indivíduos com mais de 5% dos loci genotipados ausentes (faltantes). Isso significa que os indivíduos que têm muitos dados ausentes serão removidos da análise.
+
+* `--mind 0.10`: Remove todos os loci com mais de 10% dos genótipos faltantes. Isso significa que os loci que têm muitos dados ausentes serão removidos da análise.
+
+* `--hwe 1e-60 midp include-nonctrl`: Remove todos os loci que apresentam desequilíbrio de Hardy-Weinberg (HWE) com valor de p menor do que 1e-60 (1x10<sup>-60</sup>). O parâmetro `midp` é utilizado para calcular o valor de _p_ e a opção `include-nonctrl` especifica que devem ser incluídos no cálculo os indivíduos que não são controles.
+
+* `--nonfounders`: Remove todos os indivíduos que não são fundadores, ou seja, indivíduos que têm pelo menos um pai no arquivo de entrada.
+
+* `--sheep`: Especifica que os dados são de ovinos.
+
+* `--allow-extra-chr`: Permite a inclusão de cromossomos extras.
+
+* `--indep-pairwise 50 5 0.4`: Realiza a análise de **LD pruning**, ou seja, remove marcadores que estão em desequilíbrio de ligação (LD) uns com os outros. Nesse caso, ele irá reter apenas um marcador de cada par de marcadores que têm uma correlação maior do que 0,4, dentro de janelas de 50 SNPs e passo de 5 SNPs.
+
+* `--make-bed`: Especifica que o arquivo de saída será no formato BED, que é um **formato de arquivo binário** usado pelo PLINK.
+
+* `--threads 8`: Especifica o número de threads (ou processos paralelos) que serão utilizados na análise.
+
+* `--out binary`: Especifica o nome do arquivo de saída. Nesse caso, o arquivo de saída será chamado "binary".
+
+
+
+:::{.callout-note}
+Quando o PLINK faz a leitura das _flags_, ele as lê de maneira sequencial. Como são muitas, a depender da análise, escrever o script em BASH fica mais legível do que tentar copiar inúmeras flags em sequência no terminal. O caracter de `\` em um script BASH informa ao terminal uma quebra de linha, isso facilita a legibilidade do código, mas internamente, na execução do programa, os comando são lidos como se estivessem em uma única linha de código.
+:::
+
+Duas flags importantes a observar no comando PLINK acima. A flag `--file` indica que ainda estamos fazendo a leitura de um arquivo `.ped`. E a flag `--make-bed` é o comando que converte nossos arquivos em um formato binário.
+
+### Parâmetros do QC
+
+É importante compreender os parâmetros adotados no QC (_quality control_). Alguns parâmetros são já estabelecidos como base na literatura, mas outros dependem da especificidade do projeto, dos objetivos e principalmente do número de marcadores disponíveis. De modo mais simples, quando trabalhamos com chips de alta densidade, com um número grande de marcadores, podemos ser mais restritivos quanto a alguns dos parâmetros do QC, eliminando assim um número maior de marcadores. Entretanto, se trabalhamos com poucas amostras e um chip de baixa densidade de marcadores, deve-se levar em consideração o objetivo do trabalho e o quanto mais flexíveis podemos ser em relação ao QC visando maximizar o número de marcadores restantes, sem prejudicar a acurácia das estatísticas obtidas. Uma boa discussão sobre QC em estudos de GWAS veja Gondro [@gondro2013genome; @gondro2014snpqc].
+
+### Criando Script de QC
+
+Vamos agora criar um script em BASH que navegue pelos diretórios onde encontram-se os dados de cada população, e gere nossos arquivos binários e faça também o QC para cada população. Novamente, basta criar um arquivo com extensão `.sh` e executar. No meu caso chamei de `pop_QC.sh`.
+
+```{bash}
+#| eval: false
+#!/usr/bin/env bash
+
+# Array com 5 elementos contendo os padrões
+populacoes=($(awk '!arr[$1]++ {print $1}' toPlink_Ovis.ped))
+
+# Loop para realização do QC em cada população
+# e criação dos arquivos Binários
+for populacao in "${populacoes[@]}"
+do
+	echo "Realizando QC para a população: $populacao ..."
+	cd "$populacao"
+	
+	plink --file "$populacao"_toPlink \
+    --maf 0.05 \
+    --geno 0.05 \
+    --mind 0.10 \
+    --hwe 1e-60 midp include-nonctrl \
+    --nonfounders \
+    --sheep \
+    --allow-extra-chr \
+    --indep-pairwise 50 5 0.4 \
+    --make-bed \
+    --threads 8 \
+    --out binary
+    
+    echo "QC e Arquivos binários criados para $populacao !"
+    cd ..
+	
+	
+done
+```
+
+A primeira linha `#!/usr/bin/env bash` indica que o interpretador de comandos utilizado será o bash.
+
+A linha seguinte cria um array chamado `populacoes` que armazena os nomes das populações presentes no arquivo `toPlink_Ovis.ped`. O comando `awk` é usado para identificar os nomes únicos de população na primeira coluna do arquivo `toPlink_Ovis.ped` e armazená-los em um array.
+
+Em seguida, o script utiliza um loop for para iterar através de cada população no array `populacoes`. Para cada população, o script muda para o diretório correspondente utilizando o comando `cd` e, em seguida, executa o comando PLINK (que foi explicado no passo anterior) para realizar o QC e criar os arquivos binários para essa população.
+
+O comando `echo` é usado para imprimir uma mensagem informando qual população está sendo processada e quando os arquivos binários foram criados. O comando `cd ..` é usado para voltar ao diretório original antes de prosseguir para a próxima população.
+
+Se tudo deu certo, veremos que nas pastas das nossas populações temos agora os arquivos binários criados pelo PLINK, bem como outros arquivos de suporte.
+
+```{bash}
+#| eval: false
+tree
+```
+
+```
+.
+├── ADP_toPlink.map
+├── ADP_toPlink.ped
+├── binary.bed
+├── binary.bim
+├── binary.fam
+├── binary.log
+├── binary.nosex
+├── binary.prune.in
+└── binary.prune.out
+
+```
+
+Temos os nossos arquivos `.ped` e `.map` originais da população. O PLINK criou uma série de arquivos com o nome  `binary` já que esta foi a opção de saída que informamos com a flag  `--out`. Os arquivos com extensão `.bed`, `.bim` e `.fam` são os novos arquivos que o PLINK utilizará nas análises seguintes. O arquivo `.log` é muito importante pois é um registro de todos os passos que foram realizados na execução do código, nele podemos identificar as mensagens de erro caso ocorram, o que é mais fácil do que rolar o terminal. O arquivo `.nosex` contém as informações sobre o sexo dos indivíduos no arquivo de genótipo. No nosso caso, como não temos a informação de sexo, vocês verão que o que consta neste arquivo é simplesmente o ID da Família/População e do indivíduo.
+
+Dois arquivos são extremamente importantes, os arquivos `.prune.in` e `prune.out`. São os arquivos que contém as informações de _prunning_ (filtro) dos marcadores. O arquivo `.in` possui a ID dos marcadores que passaram no QC, e o `.out` os marcadores que foram removidos por falhar no QC. Estes arquivos contém somente o identificador do SNP, então podemos facilmente saber o número de marcadores excluídos no processo de QC para esta população.
+
+```{bash}
+#| eval: false
+wc -l binary.prune.out
+```
+
+```
+26982 binary.prune.out
+```
+
+Nosso número original de marcadores era de 46819 SNPs. Isso significa que aproximadamente 57% dos marcadores para esta população foram removidos com base nos nossos parâmetros de QC. Um número bastante significativo. Faça o exercício de rodar novamente o QC para esta população alterando alguns dos parâmetros do QC e veja a diferença no número de marcadores mantidos ou excluídos. Principalmente em parâmetros relacionados a LD como `--indep-pairwise 50 5 0.4`. Consulte a [documentação do PLINK](https://www.cog-genomics.org/plink/1.9/ld#indep) caso tenha dúvidas em como alterar esta flag.
+
+
+
+::: {#refs}
+**Referências**
+:::
