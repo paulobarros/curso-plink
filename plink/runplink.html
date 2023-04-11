@@ -252,6 +252,11 @@ div.csl-indent {
   <a href="../plink/pca.html" class="sidebar-item-text sidebar-link">PCA</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plink/datasets.html" class="sidebar-item-text sidebar-link">Datasets</a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -300,32 +305,39 @@ Importante
 </div>
 <div class="callout-body-container callout-body">
 <p>Meu sistema operacional é o Pop_OS!, uma distro Linux. Mesmo possuindo uma interface gráfica, muitos dos comandos e prints de tela que vocês verão nos exemplos serão executados em terminal já que em muitas das vezes a depender do volume de dados, as análises são realizadas em servidores com um maior poder computacional. Estes computadores muito provavelmente estarão rodando alguma versão de servidor do Linux sem uma interface gráfica, então é mais útil que vocês já se familiarizem com os comandos de terminal.</p>
-<p>O formato que vocês verão nos comandos será sempre o mesmo:</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; tree
-</code></pre>
-<p><strong>paulo@pop-os</strong> : meu nome de usuario e nome da minha máquina</p>
-<p><strong>~/Documents/GENOMICS/plink</strong> : o caminho do diretório no qual estou trabalhando</p>
-<p><strong>tree</strong> : o comando que está sendo executado</p>
+<p>Vou adotar sempre o mesmo esquema, o bloco de código com o comando utilizado, seguido pela saída do comando no terminal. Por exemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">tree</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>E logo abaixo a resposta daquele comando.</p>
+<pre><code>.
+├── folder1
+└── folder2
+</code></pre>
 </div>
 </div>
 <p>Quando fazemos o download do PLINK 1.9 observamos os seguintes arquivos:</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; tree
-
-.
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">tree</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>.
 ├── LICENSE   -&gt; arquivo de licença do PLINK
 ├── plink     -&gt; executável do PLINK
 ├── prettify  -&gt; utilitário para gerar tabelas formatadas
 ├── toy.map   -&gt; arquivo .MAP de exemplo
 └── toy.ped   -&gt; arquivo .PED de exemplo</code></pre>
 <p>Podemos usar o terminal para ver a cara do aquivo de genótipo e de mapa usando o comando <code>cat</code> para imprimir o arquivo na tela do terminal.</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; cat toy.ped 
-1 1000000000 0 0 1 1 0 0 A A
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">cat</span> toy.ped </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>1 1000000000 0 0 1 1 0 0 A A
 1 1000000001 0 0 1 2 C C A G
 </code></pre>
 <p>Como podemos ver o arquivo de exemplo possui as <a href="../plink/datafiles.html#colunas-iniciais">seis colunas iniciais</a> de um arquivo <code>.ped</code>, seguidas dos genótipos de dois marcadores codificados como bases nucleotídicas. Já no arquivo <code>.map</code> vamos observar <a href="../plink/datafiles.html#map-files">quatro colunas</a> e duas linhas, referentes aos dois marcadores no nosso arquivo de genótipo.</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; cat toy.map
-1   rs0     0   1000
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">cat</span> toy.map</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>1   rs0     0   1000
 1   rs10    0   1001</code></pre>
 <section id="invocando-o-executável" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="invocando-o-executável">Invocando o executável</h3>
@@ -344,16 +356,20 @@ Importante
 </figure>
 </div>
 <p>Observe que tanto o <code>plink</code> quanto <code>prettify</code> estão setados com as permissões <code>-rwxrwxr-x paulo</code>. Em resumo, as letras <code>r</code>, <code>w</code> e <code>x</code> referem-se respectivamente aos modos de <strong>leitura</strong> (<em>read</em>), <strong>escrita</strong> (<em>write</em>) e <strong>execução</strong> (<em>execution</em>). Caso necessite fornecer permissão de execução para o binário do <code>plink</code>pode fazer com o comando abaixo:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">sudo</span> chmod +x plink prettify</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="lst-chmod" class="listing">
+<p>Listagem&nbsp;1: Execução de Permissão</p>
+<div class="sourceCode" id="lst-chmod" data-lst-cap="Execução de Permissão"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="lst-chmod-1"><a href="#lst-chmod-1"></a><span class="co">#| eval: false</span></span>
+<span id="lst-chmod-2"><a href="#lst-chmod-2"></a><span class="fu">sudo</span> chmod +x plink prettify</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>E como não custa nada lembrar <i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> <i class="fa-brands fa-linux" aria-label="linux"></i> <a href="https://paulobarros.github.io/introducao-ao-linux/">Material Introdução ao Linux</a></p>
 </section>
 <section id="rodando-arquivos-exemplo" class="level3">
 <h3 class="anchored" data-anchor-id="rodando-arquivos-exemplo">Rodando arquivos exemplo</h3>
 <p>Tudo certo com nossas permissões, podemos então executar o PLINK pela primeira vez. Para isso basta chamar invocar o executável no terminal. Em Linux, quando desejamos rodar algum executável, seja um binário ou arquivo de script, basta utilizar <code>./</code> antes do nome do comando para invocar a sua execução. No nosso caso utilizaremos <code>./plink</code> no terminal para sua execução.</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; ./plink 
-PLINK v1.90b7 64-bit (16 Jan 2023)             www.cog-genomics.org/plink/1.9/
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">./plink</span> </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>PLINK v1.90b7 64-bit (16 Jan 2023)             www.cog-genomics.org/plink/1.9/
 (C) 2005-2023 Shaun Purcell, Christopher Chang   GNU General Public License v3
 
   plink &lt;input flag(s)...&gt; [command flag(s)...] [other flag(s)...]
@@ -371,8 +387,10 @@ Commands include --make-bed, --recode, --flip-scan, --merge-list,
 "plink --help | more" describes all functions (warning: long).
 </code></pre>
 <p>Ao invocar o PLINK sem nenhuma das suas <em>flags</em>, ele simnplesmente exibe na tela uma rápida ajuda do programa, mostrando algumas das <em>flags</em> aceitas e também como invocar a ajuda do programa. Podemos então fazer a leitura dos arquivos de exemplo <code>toy.ped</code> e <code>toy.map</code>.</p>
-<pre><code>✘ paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; ./plink --file toy --freq --out toy_analysis
-PLINK v1.90b7 64-bit (16 Jan 2023)             www.cog-genomics.org/plink/1.9/
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="ex">./plink</span> <span class="at">--file</span> toy <span class="at">--freq</span> <span class="at">--out</span> toy_analysis</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>PLINK v1.90b7 64-bit (16 Jan 2023)             www.cog-genomics.org/plink/1.9/
 (C) 2005-2023 Shaun Purcell, Christopher Chang   GNU General Public License v3
 Logging to toy_analysis.log.
 Options in effect:
@@ -403,7 +421,7 @@ Total genotyping rate is 0.75.
 <p>As opções utilizadas foram <code>--file</code> , <code>--freq</code> e <code>--out</code>. Tudo o que é seguido de um comando, chamamos de parâmetro. Por exemplo, o comando <code>--file</code> é seguido do parâmetro <code>toy</code>, assim como o comando <code>--out</code> é seguido do parâmetro <code>toy_analysis</code>. Nem todo comando obrigatoriamente necessita de um parâmetro subsequente, como é o caso do comando <code>--freq</code>. Vamos tentar entender agora o que cada comando significa neste exemplo.</p>
 <ul>
 <li><p><code>--file toy</code> : este comando diz ao PLINK para utilizar os arquivos de entrada na pasta. No nosso caso possuímos dois arquivos <code>toy.ped</code> e <code>toy.map</code>, como o nome do arquivo é idêntico alterando somente a sua extenção, o comando automaticamente busca estes arquivos na pasta e faz a sua leitura.</p></li>
-<li><p><code>--freq</code> : este comando informa ao PLINK para gerar um relatório de frequências alélicas. A <a href="https://www.cog-genomics.org/plink/1.9/data"><i class="fa-solid fa-book fa-lg" aria-label="book"></i> documentação do plink</a> oferece a descrição de todas as funções disponíveis, e também as configurações dos arquivos de saída para cada função.</p></li>
+<li><p><code>--freq</code> : este comando informa ao PLINK para gerar um relatório de frequências alélicas. A <a href="https://www.cog-genomics.org/plink/1.9/data"><i class="fa-solid fa-book fa-lg" aria-label="book"></i> documentação do plink</a> <span class="citation" data-cites="plinkdoc">[<a href="#ref-plinkdoc" role="doc-biblioref">1</a>]</span> oferece a descrição de todas as funções disponíveis, e também as configurações dos arquivos de saída para cada função.</p></li>
 <li><p><code>--out</code> : por padrão, todos os arquivos de resultado do PLINK são nomeados <code>plink.alguma_extensao</code>, o paramertro <code>toy_analysis</code> diz ao plink para alterar este padrão, dessa maneira o resultado será nomeado <code>toy_analysis.alguma_extensao</code>, por exemplo, no caso da análise que acabamos de executar, será criado o arquivo <code>toy_analysis.frq</code>, já que <code>.frq</code> é a extensão padrão da saída do comando <code>--freq</code>.</p></li>
 </ul>
 <p>Existem modificadores que podem ser utilizados em conjunto com os comandos, para saber a maneira correta de utilização basta recorrer a documentação.</p>
@@ -411,8 +429,10 @@ Total genotyping rate is 0.75.
 <section id="arquivos-de-saída" class="level3">
 <h3 class="anchored" data-anchor-id="arquivos-de-saída">Arquivos de Saída</h3>
 <p>Se tudo correu bem, devemos ter na nossa pasta novos arquivos gerados pelo PLINK</p>
-<pre><code> paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; tree
-.
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="ex">tree</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>.
 ├── LICENSE
 ├── plink
 ├── prettify
@@ -422,8 +442,10 @@ Total genotyping rate is 0.75.
 └── toy.ped
 </code></pre>
 <p>Agora aparecem no nosso diretório os arquivos <code>toy_analysis.frq</code>, que é o arquivo de saída do comando <code>--freq</code> e o arquivo <code>toy_analysis.log</code>. Vamos dar uma olhada mais de perto no arquivo da nossa análise das frequências alélicas.</p>
-<pre><code>paulo@pop-os |&gt; ~/Documents/GENOMICS/plink |&gt; cat toy_analysis.frq
- CHR  SNP   A1   A2          MAF  NCHROBS
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">cat</span> toy_analysis.frq</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code> CHR  SNP   A1   A2          MAF  NCHROBS
    1  rs0    0    C            0        2
    1 rs10    G    A         0.25        4</code></pre>
 <p>O nosso arquivo de resultado nos mostra:</p>
@@ -437,8 +459,12 @@ Total genotyping rate is 0.75.
 </ul>
 <p>Na documentação é possível encontrar outras formas de pedir o cálculo das frequências alélicas.</p>
 <p>Você pode abrir o arquivo <code>toy_analysis.log</code> no seu editor de texto e verá que ele é um registro de todas as mensagens que o PLINK exibiu no terminal durante a execuçào. Esse arquivo é muito importante na hora de identificar erros na leitura de arquivos, ou na execução de comandos, esteja sempre atento as mensagens!</p>
-<div id="refs" role="doc-bibliography">
+<p>Tranquilo até aqui? Nas próximas seções vamos trabalhar chips SNPs disponíveis na internet e realizar análises mais aprofundadas. Em cada caso, será informado o <em>dataset</em> que estaremos utilizando para as análises, bem como informações de download e especificações. Todos os dados utilizados aqui estão públicos disponíveis na internet.</p>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <p><strong>Referências</strong></p>
+<div id="ref-plinkdoc" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">PLINK 1.9 Documentation. <a href="<https://www.cog-genomics.org/plink2/>" class="uri">&lt;https://www.cog-genomics.org/plink2/&gt;</a>; </div>
+</div>
 </div>
 
 

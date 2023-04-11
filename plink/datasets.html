@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introdução a Análises Genômicas no PLINK - Aplicações</title>
+<title>Introdução a Análises Genômicas no PLINK - Datasets</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,8 +48,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../plink/index.html" rel="next">
-<link href="../genomica/sequenciamento.html" rel="prev">
+<link href="../plink/pca.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,6 +80,9 @@ div.csl-indent {
   }
 }</script>
 
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 </head>
 
@@ -90,7 +92,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Aplicações</h1>
+      <h1 class="quarto-secondary-nav-title">Datasets</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -127,11 +129,11 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../genomica/index.html" class="sidebar-item-text sidebar-link">Genômica</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../genomica/markers.html" class="sidebar-item-text sidebar-link">Marcadores Moleculares</a>
@@ -149,7 +151,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../genomica/aplicacao.html" class="sidebar-item-text sidebar-link active">Aplicações</a>
+  <a href="../genomica/aplicacao.html" class="sidebar-item-text sidebar-link">Aplicações</a>
   </div>
 </li>
       </ul>
@@ -157,11 +159,11 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../plink/index.html" class="sidebar-item-text sidebar-link">PLINK</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../plink/datafiles.html" class="sidebar-item-text sidebar-link">Arquivos de Entrada</a>
@@ -189,7 +191,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../plink/datasets.html" class="sidebar-item-text sidebar-link">Datasets</a>
+  <a href="../plink/datasets.html" class="sidebar-item-text sidebar-link active">Datasets</a>
   </div>
 </li>
       </ul>
@@ -203,9 +205,7 @@ div.csl-indent {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#biologia-da-conservação" id="toc-biologia-da-conservação" class="nav-link active" data-scroll-target="#biologia-da-conservação">Biologia da Conservação:</a></li>
-  <li><a href="#melhoramento-animal" id="toc-melhoramento-animal" class="nav-link" data-scroll-target="#melhoramento-animal">Melhoramento Animal</a></li>
-  <li><a href="#medicina-humana" id="toc-medicina-humana" class="nav-link" data-scroll-target="#medicina-humana">Medicina Humana</a></li>
+  <li><a href="#sheep" id="toc-sheep" class="nav-link active" data-scroll-target="#sheep">Sheep</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/paulobarros/curso-plink/issues/new" class="toc-action">Criar uma issue</a></p></div></div></nav>
     </div>
@@ -214,7 +214,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Aplicações</h1>
+<h1 class="title d-none d-lg-block">Datasets</h1>
 </div>
 
 
@@ -229,43 +229,66 @@ div.csl-indent {
 
 </header>
 
-<p>Genômica é uma área de pesquisa que tem revolucionado a Biologia, a Agricultura e a Medicina, permitindo que os cientistas estudem o DNA dos organismos e entendam a relação entre a informação genética e as características físicas e fisiológicas. A aplicação da genômica tem permitido avanços em diversas áreas, como a Biologia da Conservação, o Melhoramento Animal e a Medicina Humana. A seguir, serão apresentados dois exemplos de estudos em cada uma dessas áreas.</p>
-<section id="biologia-da-conservação" class="level3">
-<h3 class="anchored" data-anchor-id="biologia-da-conservação">Biologia da Conservação:</h3>
-<p>Pesquisadores usaram sequenciamento de genoma para entender a estrutura genética de populações de ursos polares <span class="citation" data-cites="peacock2015implications">[<a href="#ref-peacock2015implications" role="doc-biblioref">1</a>]</span>. O objetivo era entender como as mudanças climáticas afetaram a diversidade genética desses animais. Os resultados mostraram que os ursos polares apresentam uma grande perda de diversidade genética devido à mudança climática, que afetou seu habitat e populações.</p>
-<p>Outro estudo utilizou técnicas de genômica para avaliar a diversidade genética de uma população de micos-leões-dourados em fragmentos florestais do Brasil <span class="citation" data-cites="ruiz2012genetic">[<a href="#ref-ruiz2012genetic" role="doc-biblioref">2</a>]</span>. O objetivo era entender o impacto da fragmentação do habitat na diversidade genética desses animais. Os resultados mostraram que a diversidade genética dos micos-leões-dourados é afetada pela fragmentação do habitat, o que pode levar à perda de diversidade genética e aumentar o risco de extinção dessas espécies.</p>
-</section>
-<section id="melhoramento-animal" class="level3">
-<h3 class="anchored" data-anchor-id="melhoramento-animal">Melhoramento Animal</h3>
-<p>Pesquisadores utilizaram sequenciamento de genoma para identificar genes associados a características importantes em bovinos <span class="citation" data-cites="jiang2017genomic">[<a href="#ref-jiang2017genomic" role="doc-biblioref">3</a>]</span>. O objetivo era identificar marcadores genéticos que pudessem ser usados em programas de melhoramento genético. Os resultados mostraram que foram identificados vários genes associados à produção de leite, resistência a doenças e outras características importantes em bovinos.</p>
-<p>Outro estudo usou técnicas de genômica para avaliar a diversidade genética em populações de salmão selvagem e criado em cativeiro <span class="citation" data-cites="hess2016population">[<a href="#ref-hess2016population" role="doc-biblioref">4</a>]</span>. O objetivo era entender a relação entre a diversidade genética e a adaptação ao ambiente. Os resultados mostraram que a diversidade genética é maior em populações de salmão selvagem do que em populações criadas em cativeiro, e que a diversidade genética está relacionada à adaptação ao ambiente.</p>
-</section>
-<section id="medicina-humana" class="level3">
-<h3 class="anchored" data-anchor-id="medicina-humana">Medicina Humana</h3>
-<p>Pesquisadores usaram técnicas de sequenciamento de genoma para identificar genes associados a doenças cardíacas em humanos <span class="citation" data-cites="pjanic2021genetic">[<a href="#ref-pjanic2021genetic" role="doc-biblioref">5</a>]</span>. O objetivo era entender a base genética de doenças cardíacas comuns. Os resultados mostraram que foram identificados vários genes associados a doenças cardíacas, e que esses genes podem ser usados para desenvolver novos tratamentos e prevenção.</p>
-<p>Outro estudo usou técnicas de genômica para entender a base genética de doenças raras <span class="citation" data-cites="mamedov2017next">[<a href="#ref-mamedov2017next" role="doc-biblioref">6</a>]</span>. O objetivo era entender como mutações genéticas causam doenças raras e desenvolver terapias personalizadas. Os resultados mostraram que foram identificadas mutações em genes específicos associados a diversas doenças raras, o que pode levar ao desenvolvimento de terapias personalizadas. Os resultados mostraram que foram identificadas mutações em genes específicos associados a diversas doenças raras, o que pode levar ao desenvolvimento de terapias personalizadas para essas doenças.</p>
-<p>A genômica é uma área de grande potencial em várias outras áreas além da Biologia da Conservação, Melhoramento Animal e Medicina Humana. Por exemplo, a genômica tem sido utilizada na agricultura para aumentar a produção de alimentos de forma mais sustentável e eficiente, por meio do desenvolvimento de plantas e animais com características desejáveis.Além disso, a genômica também está sendo aplicada na área forense para a identificação de indivíduos e a resolução de casos criminais. Com o avanço das tecnologias de sequenciamento genético, é possível obter informações genéticas precisas a partir de amostras biológicas como sangue, saliva e cabelo, possibilitando a identificação de pessoas com base em seu perfil genético.</p>
-<p>A genômica é uma área em constante evolução e que tem um grande potencial para contribuir em diversos campos, desde a conservação de espécies até a resolução de crimes. É importante que os avanços nesta área sejam acompanhados de uma reflexão crítica sobre seus possíveis impactos éticos, sociais e ambientais, a fim de garantir que a genômica seja utilizada de forma responsável e benéfica para a sociedade como um todo.</p>
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<section id="sheep" class="level3">
+<h3 class="anchored" data-anchor-id="sheep">Sheep</h3>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-hover table-condensed" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
+ <thead>
+  <tr>
+   <th style="text-align:left;background-color: #F2F2F2 !important;"> População </th>
+   <th style="text-align:right;background-color: #F2F2F2 !important;"> N </th>
+   <th style="text-align:left;background-color: #F2F2F2 !important;"> Chip </th>
+   <th style="text-align:left;background-color: #F2F2F2 !important;"> Referência </th>
+   <th style="text-align:left;background-color: #F2F2F2 !important;"> Fonte </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> ADP - African Dorper </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> Illumina OvineSNP50v1 </td>
+   <td style="text-align:left;"> <a href="https://doi.org/10.1371/journal.pbio.1001258" style=" font-weight: bold;    ">Kijas et al, PLoS Biology, 2012</a> </td>
+   <td style="text-align:left;"> <a href="http://widde.toulouse.inra.fr/widde/widde/main.do?module=sheep" style=" font-weight: bold;    ">Widde Sheep</a> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AWD - African White Dorper </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> Illumina OvineSNP50v1 </td>
+   <td style="text-align:left;"> <a href="https://doi.org/10.1371/journal.pbio.1001258" style=" font-weight: bold;    ">Kijas et al, PLoS Biology, 2012</a> </td>
+   <td style="text-align:left;"> <a href="http://widde.toulouse.inra.fr/widde/widde/main.do?module=sheep" style=" font-weight: bold;    ">Widde Sheep</a> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BCS - Brazilian Creole </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> Illumina OvineSNP50v1 </td>
+   <td style="text-align:left;"> <a href="https://doi.org/10.1371/journal.pbio.1001258" style=" font-weight: bold;    ">Kijas et al, PLoS Biology, 2012</a> </td>
+   <td style="text-align:left;"> <a href="http://widde.toulouse.inra.fr/widde/widde/main.do?module=sheep" style=" font-weight: bold;    ">Widde Sheep</a> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BMN - Morada Nova </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:left;"> Illumina OvineSNP50v1 </td>
+   <td style="text-align:left;"> <a href="https://doi.org/10.1371/journal.pbio.1001258" style=" font-weight: bold;    ">Kijas et al, PLoS Biology, 2012</a> </td>
+   <td style="text-align:left;"> <a href="http://widde.toulouse.inra.fr/widde/widde/main.do?module=sheep" style=" font-weight: bold;    ">Widde Sheep</a> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BSI - SantaInes </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:left;"> Illumina OvineSNP50v1 </td>
+   <td style="text-align:left;"> <a href="https://doi.org/10.1371/journal.pbio.1001258" style=" font-weight: bold;    ">Kijas et al, PLoS Biology, 2012</a> </td>
+   <td style="text-align:left;"> <a href="http://widde.toulouse.inra.fr/widde/widde/main.do?module=sheep" style=" font-weight: bold;    ">Widde Sheep</a> </td>
+  </tr>
+</tbody>
+<tfoot><tr><td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">Observações:</span> <sup></sup> <br><b>Número total de Marcadores:</b> 46819.<br><b>Cromossomos Selecionados:</b> OAR1 OAR2 OAR3 OAR4 OAR5 OAR6 OAR7 OAR8 OAR9 OAR10 OAR11 OAR12 OAR13 OAR14 OAR15 OAR16 OAR17 OAR18 OAR19 OAR20 OAR21 OAR22 OAR23 OAR24 OAR25 OAR26</td></tr></tfoot>
+</table>
+
+</div>
+</div>
+<div id="refs" role="doc-bibliography">
 <p><strong>Referências</strong></p>
-<div id="ref-peacock2015implications" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Peacock E, Sonsthagen SA, Obbard ME, Boltunov AN, Regehr EV, Ovsyanikov N, et al. Implications of the circumpolar genetic structure of polar bears for their conservation in a rapidly warming Arctic. PLoS ONE. 2015;10: e112021. </div>
-</div>
-<div id="ref-ruiz2012genetic" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Ruiz-Miranda CR, Santos F’ icio R, Di Fiore A, Phillips AC, Nash SD. Genetic diversity and conservation units in the golden lion tamarin (Leontopithecus rosalia). PLoS ONE. 2012;7: e39088. </div>
-</div>
-<div id="ref-jiang2017genomic" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Jiang L, Liu J, Sun D, Ma P, Ding X, Yu Y, et al. Genomic editing reveals novel gene targets and pathways for increasing the milk protein content in dairy cows. Scientific Reports. 2017;7: 44119. </div>
-</div>
-<div id="ref-hess2016population" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline">Hess JE, Zendt JS, Matala AP, Narum SR, Campbell NR. Population genomics reveals decreased diversification and minimal genetic connectivity in a threatened Pacific salmon. Journal of Fish and Wildlife Management. 2016;7: 382–398. </div>
-</div>
-<div id="ref-pjanic2021genetic" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline">Pjanic M, Sikic D, Beleslin-Cokic BB. The genetic basis of cardiovascular diseases: current knowledge and future perspectives. Journal of Medical Genetics. 2021;58: 519–527. </div>
-</div>
-<div id="ref-mamedov2017next" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline">Mamedov TG, Arzumanyan ES, Popova AY. Next-generation sequencing in rare diseases: rare is many and many is rare. Frontiers in Public Health. 2017;5: 263. </div>
-</div>
 </div>
 
 
@@ -522,14 +545,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../genomica/sequenciamento.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Genotipagem</span>
+      <a href="../plink/pca.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PCA</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../plink/index.html" class="pagination-link">
-        <span class="nav-page-text">PLINK</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

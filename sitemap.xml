@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/aplicacao.html</loc>
-    <lastmod>2023-04-03T23:00:32.673Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/snps.html</loc>
-    <lastmod>2023-04-03T23:00:35.897Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/index.html</loc>
-    <lastmod>2023-04-03T23:00:37.129Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/sequenciamento.html</loc>
-    <lastmod>2023-04-03T23:00:38.465Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/markers.html</loc>
-    <lastmod>2023-04-03T23:00:39.729Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/about.html</loc>
-    <lastmod>2023-04-03T23:00:41.301Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/diversity.html</loc>
-    <lastmod>2023-04-03T23:00:43.633Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/qc.html</loc>
-    <lastmod>2023-04-03T23:00:44.129Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/runplink.html</loc>
-    <lastmod>2023-04-03T23:00:45.437Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/datafiles.html</loc>
-    <lastmod>2023-04-03T23:00:46.697Z</lastmod>
-  </url>
-  <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/pca.html</loc>
-    <lastmod>2023-04-03T23:00:47.153Z</lastmod>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/index.html</loc>
+    <lastmod>2023-04-11T14:08:42.858Z</lastmod>
   </url>
   <url>
     <loc>https://paulobarros.github.io/introducao-ao-linux/plink/index.html</loc>
-    <lastmod>2023-04-03T23:00:48.365Z</lastmod>
+    <lastmod>2023-04-11T14:08:46.034Z</lastmod>
   </url>
   <url>
-    <loc>https://paulobarros.github.io/introducao-ao-linux/index.html</loc>
-    <lastmod>2023-04-03T23:00:49.734Z</lastmod>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/qc.html</loc>
+    <lastmod>2023-04-11T14:08:47.538Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/datasets.html</loc>
+    <lastmod>2023-04-11T14:08:48.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/diversity.html</loc>
+    <lastmod>2023-04-11T14:08:49.362Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/runplink.html</loc>
+    <lastmod>2023-04-11T14:08:50.690Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/pca.html</loc>
+    <lastmod>2023-04-11T14:08:51.162Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/plink/datafiles.html</loc>
+    <lastmod>2023-04-11T14:08:52.406Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/index.html</loc>
+    <lastmod>2023-04-11T14:08:53.570Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/sequenciamento.html</loc>
+    <lastmod>2023-04-11T14:08:54.746Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/snps.html</loc>
+    <lastmod>2023-04-11T14:08:56.014Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/markers.html</loc>
+    <lastmod>2023-04-11T14:08:57.298Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/genomica/aplicacao.html</loc>
+    <lastmod>2023-04-11T14:08:58.438Z</lastmod>
+  </url>
+  <url>
+    <loc>https://paulobarros.github.io/introducao-ao-linux/about.html</loc>
+    <lastmod>2023-04-11T14:09:00.118Z</lastmod>
   </url>
 </urlset>
